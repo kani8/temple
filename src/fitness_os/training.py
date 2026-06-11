@@ -21,6 +21,18 @@ class ExercisePlan:
 
 
 @dataclass
+class CardioPlan:
+    required: bool
+    modality: str
+    duration: str
+    intensity: str
+    heart_rate_target: str
+    timing: str
+    steps_target: str
+    notes: str
+
+
+@dataclass
 class TrainingPlan:
     session_key: str
     session_name: str
@@ -28,7 +40,7 @@ class TrainingPlan:
     day_number: int
     exercises: list[ExercisePlan]
     warmup: str
-    cardio: str
+    cardio: CardioPlan
 
 
 def program_day(program_start: date, today: date) -> int:
@@ -71,12 +83,39 @@ def session_display_name(session_key: str) -> str:
     return session_key.replace("_", " ").title()
 
 
-def cardio_for_session(session_key: str, day_number: int) -> str:
+def cardio_for_session(session_key: str, day_number: int) -> CardioPlan:
     if session_key.startswith("push") or session_key.startswith("pull"):
-        return "20-25 min incline walk, 10-12% grade, 3.0-3.5 mph, Zone 2."
+        return CardioPlan(
+            required=True,
+            modality="Incline treadmill walk",
+            duration="20-25 min",
+            intensity="Zone 2; 10-12% grade at 3.0-3.5 mph",
+            heart_rate_target="125-140 bpm",
+            timing="Immediately post-lift or later same day",
+            steps_target="8,000-10,000 total daily steps",
+            notes="Nasal-breathing pace. Add speed only if HR stays below target.",
+        )
     if day_number % 7 == 5:
-        return "Bike or rower intervals: 10 rounds of 30s hard / 90s easy. Skip if knee pain or sleep was poor."
-    return "Optional 10-15 min easy bike cooldown. Keep steps at 8,000-10,000."
+        return CardioPlan(
+            required=True,
+            modality="Bike or rower intervals",
+            duration="10 rounds: 30s hard / 90s easy",
+            intensity="Hard rounds at RPE 8-9; easy rounds at RPE 2-3",
+            heart_rate_target="Recover below 140 bpm before the next hard round when possible",
+            timing="Post-lower or separate session 6+ hours from lifting",
+            steps_target="8,000-10,000 total daily steps",
+            notes="Skip intervals if knee pain is above 3/10, sleep was poor, or leg performance is dropping.",
+        )
+    return CardioPlan(
+        required=False,
+        modality="Easy bike cooldown",
+        duration="10-15 min",
+        intensity="Zone 1-2; easy flush pace",
+        heart_rate_target="110-130 bpm",
+        timing="Post-lower",
+        steps_target="8,000-10,000 total daily steps",
+        notes="Keep this easy. The step target is the required cardio anchor today.",
+    )
 
 
 def build_training_plan(training: dict[str, Any], profile: dict[str, Any], today: date) -> TrainingPlan:

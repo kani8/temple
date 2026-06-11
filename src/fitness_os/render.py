@@ -108,6 +108,24 @@ def micronutrient_evidence_table(report: dict[str, Any]) -> str:
     return "\n".join(rows)
 
 
+def cardio_table(training_plan: TrainingPlan) -> str:
+    cardio = training_plan.cardio
+    required = "Required" if cardio.required else "Optional"
+    rows = [
+        "| Field | Prescription |",
+        "|---|---|",
+        f"| Status | {required} |",
+        f"| Modality | {cardio.modality} |",
+        f"| Duration | {cardio.duration} |",
+        f"| Intensity | {cardio.intensity} |",
+        f"| HR target | {cardio.heart_rate_target} |",
+        f"| Timing | {cardio.timing} |",
+        f"| Steps | {cardio.steps_target} |",
+        f"| Guardrail | {cardio.notes} |",
+    ]
+    return "\n".join(rows)
+
+
 def render_plan(
     today: date,
     profile: dict[str, Any],
@@ -136,8 +154,13 @@ def render_plan(
         "",
         "- Hit protein within 10g.",
         "- Log every working set with load, reps, and RIR.",
+        "- Complete today's cardio/steps prescription.",
         "- Stop knee-aggravating movements above 3/10 pain.",
         f"- Drink at least {targets['water_oz']} oz water.",
+        "",
+        "## Cardio & Steps",
+        "",
+        cardio_table(training_plan),
         "",
         "## Training",
         "",
@@ -155,8 +178,6 @@ def render_plan(
 
     lines.extend(
         [
-            "",
-            f"Cardio: {training_plan.cardio}",
             "",
             "### Session Strength Milestones",
             "",
