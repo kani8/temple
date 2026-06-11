@@ -1,0 +1,51 @@
+{
+  "rotation": ["push_a", "pull_a", "legs_a", "push_b", "pull_b", "legs_b", "push_c"],
+  "global_rules": {
+    "sets_per_exercise": 2,
+    "default_rir": "1-2",
+    "failure_sets_per_session_max": 2,
+    "deload_every_weeks_min": 6,
+    "deload_every_weeks_max": 8,
+    "lower_warmup": "5 min bike or rower; first 2 lower exercises get 50% and 75% warm-up sets.",
+    "knee_pain_rule": "If pain exceeds 3/10, stop the movement and swap to a hip-hinge or machine curl/extension variant."
+  },
+  "exercise_targets": {
+    "machine_chest_press_flat": {"name": "Machine chest press, flat", "baseline_lb": 100, "goal_week_32_lb": 210, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_a"},
+    "lying_db_press_incline_neutral": {"name": "Lying DB press, incline neutral", "baseline_lb": 40, "goal_week_32_lb": 80, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "push_a", "per_hand": true},
+    "smith_incline_press": {"name": "Smith incline press, 30 degrees", "baseline_lb": 95, "goal_week_32_lb": 185, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_b"},
+    "machine_shoulder_press": {"name": "Machine shoulder press", "baseline_lb": 70, "goal_week_32_lb": 145, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_b"},
+    "cable_lateral_raise": {"name": "Cable lateral raise", "baseline_lb": 12.5, "goal_week_32_lb": 30, "increment_lb": 2.5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "push_c", "per_hand": true},
+    "rope_tricep_pushdown": {"name": "Cable tricep pushdown, rope", "baseline_lb": 45, "goal_week_32_lb": 90, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "push_a"},
+    "lying_db_tricep_extension": {"name": "Lying DB tricep extension", "baseline_lb": 25, "goal_week_32_lb": 50, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "push_b", "per_hand": true},
+    "lat_pulldown_wide": {"name": "Lat pulldown, wide pronated", "baseline_lb": 100, "goal_week_32_lb": 190, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "pull_a"},
+    "machine_row_chest_supported": {"name": "Chest-supported machine row", "baseline_lb": 100, "goal_week_32_lb": 210, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "pull_a"},
+    "assisted_pullup": {"name": "Assisted pull-up", "baseline_lb": 60, "goal_week_32_lb": 0, "increment_lb": -5, "sets": 2, "rep_min": 8, "rep_max": 12, "session": "pull_b", "assistance": true},
+    "cable_row_neutral": {"name": "Cable row, neutral grip", "baseline_lb": 100, "goal_week_32_lb": 200, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "pull_b"},
+    "reverse_pec_deck": {"name": "Reverse pec deck", "baseline_lb": 55, "goal_week_32_lb": 115, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "pull_b"},
+    "machine_preacher_curl": {"name": "Machine preacher curl", "baseline_lb": 50, "goal_week_32_lb": 100, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "pull_a"},
+    "cable_bayesian_curl": {"name": "Cable bayesian curl", "baseline_lb": 20, "goal_week_32_lb": 45, "increment_lb": 2.5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "pull_b", "per_hand": true},
+    "leg_press_medium": {"name": "Leg press, medium stance", "baseline_lb": 180, "goal_week_32_lb": 450, "increment_lb": 10, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "legs_a"},
+    "smith_squat_heels_elevated": {"name": "Smith squat, heels elevated, 3/4 depth", "baseline_lb": 95, "goal_week_32_lb": 225, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "legs_a"},
+    "leg_extension_top_half": {"name": "Leg extension, top-half ROM", "baseline_lb": 60, "goal_week_32_lb": 140, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "legs_a"},
+    "seated_leg_curl": {"name": "Seated leg curl", "baseline_lb": 80, "goal_week_32_lb": 170, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "legs_a"},
+    "standing_calf_raise": {"name": "Standing calf raise, Smith or machine", "baseline_lb": 135, "goal_week_32_lb": 315, "increment_lb": 10, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "legs_a"},
+    "machine_hip_thrust": {"name": "Machine or Smith hip thrust", "baseline_lb": 135, "goal_week_32_lb": 365, "increment_lb": 10, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "legs_b"},
+    "smith_rdl": {"name": "Smith RDL", "baseline_lb": 135, "goal_week_32_lb": 315, "increment_lb": 10, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "legs_b"},
+    "leg_press_high_narrow": {"name": "Leg press, high narrow foot", "baseline_lb": 180, "goal_week_32_lb": 430, "increment_lb": 10, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "legs_b"},
+    "lying_leg_curl": {"name": "Lying leg curl", "baseline_lb": 70, "goal_week_32_lb": 150, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "legs_b"},
+    "machine_hyperextension": {"name": "45-degree hyperextension machine", "baseline_lb": 25, "goal_week_32_lb": 90, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "legs_b"},
+    "seated_calf_raise": {"name": "Seated calf raise", "baseline_lb": 70, "goal_week_32_lb": 180, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "legs_b"},
+    "cable_crunch": {"name": "Cable crunch", "baseline_lb": 60, "goal_week_32_lb": 130, "increment_lb": 5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "legs_a"},
+    "hanging_knee_raise": {"name": "Hanging knee raise", "baseline_lb": 0, "goal_week_32_lb": 20, "increment_lb": 2.5, "sets": 2, "rep_min": 10, "rep_max": 15, "session": "legs_b"}
+  },
+  "sessions": {
+    "push_a": ["machine_chest_press_flat", "lying_db_press_incline_neutral", "machine_shoulder_press", "cable_lateral_raise", "rope_tricep_pushdown", "lying_db_tricep_extension"],
+    "pull_a": ["lat_pulldown_wide", "machine_row_chest_supported", "assisted_pullup", "reverse_pec_deck", "machine_preacher_curl", "cable_bayesian_curl"],
+    "legs_a": ["leg_press_medium", "smith_squat_heels_elevated", "leg_extension_top_half", "seated_leg_curl", "standing_calf_raise", "cable_crunch"],
+    "push_b": ["smith_incline_press", "machine_chest_press_flat", "machine_shoulder_press", "cable_lateral_raise", "rope_tricep_pushdown", "lying_db_tricep_extension"],
+    "pull_b": ["assisted_pullup", "cable_row_neutral", "lat_pulldown_wide", "reverse_pec_deck", "machine_preacher_curl", "cable_bayesian_curl"],
+    "legs_b": ["machine_hip_thrust", "smith_rdl", "leg_press_high_narrow", "lying_leg_curl", "machine_hyperextension", "seated_calf_raise", "hanging_knee_raise"],
+    "push_c": ["machine_chest_press_flat", "smith_incline_press", "machine_shoulder_press", "cable_lateral_raise", "rope_tricep_pushdown"]
+  }
+}
+

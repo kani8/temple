@@ -1,0 +1,20 @@
+{
+  "name": "KV",
+  "sex": "male",
+  "age": 21,
+  "height": "6'1\"",
+  "start_bodyweight_lb": 167,
+  "goal_bodyweight_lb_min": 195,
+  "goal_bodyweight_lb_max": 200,
+  "goal_body_fat_percent_min": 10,
+  "goal_body_fat_percent_max": 13,
+  "timezone": "America/Los_Angeles",
+  "program_start_date": "2026-06-10",
+  "constraints": [
+    "knee-friendly",
+    "machines/cables/Smith only",
+    "lying dumbbells allowed",
+    "no running"
+  ]
+}
+

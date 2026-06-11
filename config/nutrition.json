@@ -1,0 +1,88 @@
+{
+  "daily_targets": {
+    "calories": 2900,
+    "protein_g": 190,
+    "carbs_g": 385,
+    "fat_g": 67,
+    "fiber_g_min": 35,
+    "fiber_g_max": 45,
+    "water_oz": 128,
+    "saturated_fat_g_max": 25,
+    "sodium_mg_soft_max": 6000
+  },
+  "planning": {
+    "home_fallback_allowed": false,
+    "max_evolve_shakes_per_day": 2
+  },
+  "titration": {
+    "baseline_weeks": 2,
+    "low_gain_lb_per_week": 0.5,
+    "high_gain_lb_per_week": 1.2,
+    "calorie_step": 150
+  },
+  "cafeteria": {
+    "url_template": "https://uberbayarea.cafebonappetit.com/cafe/uber-cafe/{date}/",
+    "preferred_keywords": [
+      "chicken",
+      "salmon",
+      "steak",
+      "turkey",
+      "lean beef",
+      "tofu",
+      "rice",
+      "quinoa",
+      "potato",
+      "vegetable",
+      "greens"
+    ],
+    "avoid_keywords": [
+      "fried",
+      "cream sauce",
+      "alfredo",
+      "pastry",
+      "cookie",
+      "donut"
+    ]
+  },
+  "meal_targets": {
+    "breakfast": {"calories": 650, "protein_g": 45, "carbs_g": 75, "fat_g": 18, "fiber_g": 8, "sodium_mg": 800},
+    "uber_hq_lunch": {"calories": 850, "protein_g": 55, "carbs_g": 110, "fat_g": 22, "fiber_g": 10, "sodium_mg": 1000},
+    "pre_workout": {"calories": 350, "protein_g": 25, "carbs_g": 50, "fat_g": 5, "fiber_g": 8, "sodium_mg": 700},
+    "post_workout_dinner": {"calories": 1050, "protein_g": 65, "carbs_g": 150, "fat_g": 22, "fiber_g": 12, "sodium_mg": 1000}
+  },
+  "onsite_packaged": [
+    {"name": "Evolve protein shake, creamy vanilla", "calories": 140, "protein_g": 20, "carbs_g": 15, "fat_g": 2, "fiber_g": 10, "sodium_mg": 320, "omega3_mg": 0, "serving": "11 fl oz", "station": "Uber packaged grab-and-go"},
+    {"name": "Evolve protein shake, double chocolate", "calories": 140, "protein_g": 20, "carbs_g": 16, "fat_g": 2, "fiber_g": 10, "sodium_mg": 320, "omega3_mg": 0, "serving": "11 fl oz", "station": "Uber packaged grab-and-go"},
+    {"name": "Evolve protein shake, chocolate caramel", "calories": 140, "protein_g": 20, "carbs_g": 16, "fat_g": 2, "fiber_g": 10, "sodium_mg": 320, "omega3_mg": 100, "serving": "11 fl oz", "station": "Uber packaged grab-and-go"}
+  ],
+  "emergency_staples": [
+    {"name": "Whey isolate, 1 scoop", "calories": 120, "protein_g": 25, "carbs_g": 2, "fat_g": 1, "fiber_g": 0, "sodium_mg": 120},
+    {"name": "Greek yogurt, nonfat, 1 cup", "calories": 130, "protein_g": 23, "carbs_g": 9, "fat_g": 0, "fiber_g": 0, "sodium_mg": 80},
+    {"name": "Oatmeal, cooked, 1 cup", "calories": 155, "protein_g": 6, "carbs_g": 27, "fat_g": 3, "fiber_g": 4, "sodium_mg": 2},
+    {"name": "Banana, medium", "calories": 105, "protein_g": 1, "carbs_g": 27, "fat_g": 0, "fiber_g": 3, "sodium_mg": 1},
+    {"name": "Bagel, plain", "calories": 280, "protein_g": 10, "carbs_g": 56, "fat_g": 2, "fiber_g": 2, "sodium_mg": 450},
+    {"name": "Cooked white rice, 1 cup", "calories": 205, "protein_g": 4, "carbs_g": 45, "fat_g": 0, "fiber_g": 1, "sodium_mg": 2},
+    {"name": "Cooked potato, 300g", "calories": 260, "protein_g": 7, "carbs_g": 60, "fat_g": 0, "fiber_g": 7, "sodium_mg": 25},
+    {"name": "Olive oil, 1 tbsp", "calories": 119, "protein_g": 0, "carbs_g": 0, "fat_g": 14, "fiber_g": 0, "sodium_mg": 0},
+    {"name": "Whole eggs, 3", "calories": 216, "protein_g": 19, "carbs_g": 1, "fat_g": 15, "fiber_g": 0, "sodium_mg": 210},
+    {"name": "Egg whites, 4 oz", "calories": 60, "protein_g": 13, "carbs_g": 1, "fat_g": 0, "fiber_g": 0, "sodium_mg": 190},
+    {"name": "Chicken breast, cooked, 8 oz", "calories": 375, "protein_g": 70, "carbs_g": 0, "fat_g": 8, "fiber_g": 0, "sodium_mg": 170},
+    {"name": "Salmon, cooked, 8 oz", "calories": 468, "protein_g": 50, "carbs_g": 0, "fat_g": 28, "fiber_g": 0, "sodium_mg": 130},
+    {"name": "Mixed vegetables, 2 cups", "calories": 120, "protein_g": 6, "carbs_g": 24, "fat_g": 1, "fiber_g": 8, "sodium_mg": 90},
+    {"name": "Leafy greens, 2 cups", "calories": 30, "protein_g": 3, "carbs_g": 5, "fat_g": 0, "fiber_g": 3, "sodium_mg": 50}
+  ],
+  "fixed_meals": {
+    "breakfast": [
+      "Whole eggs, 3",
+      "Egg whites, 4 oz",
+      "Oatmeal, cooked, 1 cup",
+      "Greek yogurt, nonfat, 1 cup",
+      "Banana, medium"
+    ],
+    "pre_workout": [
+      "Whey isolate, 1 scoop",
+      "Bagel, plain",
+      "Banana, medium"
+    ]
+  }
+}
