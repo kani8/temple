@@ -7,6 +7,7 @@ The system generates:
 - A daily seven-day PPL training plan with exact target loads, reps, RIR, and week-32 strength milestones.
 - An Uber-first macro plan targeting 2,900 calories, 190g protein, 385g carbs, 67g fat, and 35-45g fiber.
 - A Bon Appetit cafeteria menu ingest for Uber HQ, plus on-site packaged Evolve protein shakes.
+- Ingredient-based micronutrient estimates, priority gap fixes, and confidence signals.
 - A 6am email workflow through GitHub Actions.
 
 ## Local Setup
@@ -92,3 +93,9 @@ The scraper uses a two-tier pipeline:
 Hidden nutrition records are excluded from meal planning. This prevents reusable or stale nutrition components from appearing in a plan when they are not visible on the actual menu.
 
 By default `config/nutrition.json` sets `planning.home_fallback_allowed` to `false`, so normal plans use Uber cafeteria items and on-site packaged options only. Turn it on only if you want emergency home foods like whey, rice, eggs, or potatoes to fill gaps when the cafeteria data is unavailable.
+
+## Micronutrients
+
+`config/micronutrients.json` defines daily targets for calcium, iron, magnesium, potassium, zinc, selenium, folate, choline, vitamins A/C/D/E/K, and B vitamins.
+
+Bon Appetit does not expose full micronutrient labels in the parsed menu fields, so `src/fitness_os/micronutrients.py` estimates likely coverage from visible item names, ingredients, and packaged-food assumptions. The daily plan marks each nutrient with a confidence label and lists the ingredient signals that drove the estimate. Treat this as a gap detector, not lab-grade nutrition tracking.

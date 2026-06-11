@@ -71,6 +71,43 @@ def label_table(items: list[FoodItem]) -> str:
     return "\n".join(rows)
 
 
+def micronutrient_table(report: dict[str, Any]) -> str:
+    rows = [
+        "| Nutrient | Estimate | Target | Coverage | Confidence |",
+        "|---|---:|---:|---:|---|",
+    ]
+    for row in report["rows"]:
+        rows.append(
+            f"| {row['label']} | {fmt_num(row['amount'])}{row['unit']} | {fmt_num(row['target'])}{row['unit']} | {fmt_num(row['percent'])}% | {row['confidence']} |"
+        )
+    return "\n".join(rows)
+
+
+def micronutrient_gap_table(report: dict[str, Any]) -> str:
+    gaps = report.get("gaps", [])[:8]
+    if not gaps:
+        return "No estimated micronutrient gaps below the configured threshold."
+    rows = ["| Priority Gap | Coverage | Uber-first fix |", "|---|---:|---|"]
+    for row in gaps:
+        rows.append(f"| {row['label']} | {fmt_num(row['percent'])}% | {row['fix']} |")
+    return "\n".join(rows)
+
+
+def micronutrient_evidence_table(report: dict[str, Any]) -> str:
+    notes = [
+        note for note in report.get("item_notes", [])
+        if note.get("reasons") and note["reasons"][0] != "no meaningful ingredient match"
+    ][:10]
+    if not notes:
+        return "No ingredient matches were strong enough to explain micronutrient estimates."
+    rows = ["| Planned Item | Confidence | Ingredient signals |", "|---|---:|---|"]
+    for note in notes:
+        rows.append(
+            f"| {note['item']} | {fmt_num(float(note['confidence']) * 100)}% | {short_text(', '.join(note['reasons']), 140)} |"
+        )
+    return "\n".join(rows)
+
+
 def render_plan(
     today: date,
     profile: dict[str, Any],
@@ -80,6 +117,7 @@ def render_plan(
     meals: list[Meal],
     daily_totals: dict[str, float],
     menu: list[FoodItem],
+    micronutrient_report: dict[str, Any] | None = None,
 ) -> str:
     targets = nutrition_config["daily_targets"]
     delta = macro_delta(daily_totals, targets)
@@ -170,6 +208,29 @@ def render_plan(
             f"| Sodium | {fmt_num(daily_totals['sodium_mg'])}mg | {targets['sodium_mg_soft_max']}mg soft max | {fmt_num(daily_totals['sodium_mg'] - targets['sodium_mg_soft_max'])}mg |",
             f"| Omega-3 | {fmt_num(daily_totals['omega3_mg'])}mg | track only |  |",
             "",
+        ]
+    )
+
+    if micronutrient_report:
+        lines.extend(
+            [
+                "### Micronutrient Estimate",
+                "",
+                "Ingredient-based estimates from visible Uber menu items and packaged-food assumptions. Use this to catch likely gaps; macros, sodium, fiber, and ingredients are stronger signals than these micronutrient estimates.",
+                "",
+                micronutrient_gap_table(micronutrient_report),
+                "",
+                micronutrient_table(micronutrient_report),
+                "",
+                "### Micronutrient Evidence",
+                "",
+                micronutrient_evidence_table(micronutrient_report),
+                "",
+            ]
+        )
+
+    lines.extend(
+        [
             "## Evening Log",
             "",
             "- Morning bodyweight:",

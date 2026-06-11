@@ -27,7 +27,10 @@ def load_training() -> dict[str, Any]:
     return load_json(CONFIG_DIR / "training.json")
 
 
+def load_micronutrients() -> dict[str, Any]:
+    return load_json(CONFIG_DIR / "micronutrients.json")
+
+
 def ensure_data_dirs() -> None:
     for path in [DATA_DIR / "menus", DATA_DIR / "logs", DATA_DIR / "plans"]:
         path.mkdir(parents=True, exist_ok=True)
-

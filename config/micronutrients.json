@@ -1,0 +1,26 @@
+{
+  "targets": {
+    "calcium_mg": {"label": "Calcium", "target": 1000, "unit": "mg"},
+    "iron_mg": {"label": "Iron", "target": 8, "unit": "mg"},
+    "magnesium_mg": {"label": "Magnesium", "target": 400, "unit": "mg"},
+    "potassium_mg": {"label": "Potassium", "target": 3400, "unit": "mg"},
+    "zinc_mg": {"label": "Zinc", "target": 11, "unit": "mg"},
+    "selenium_mcg": {"label": "Selenium", "target": 55, "unit": "mcg"},
+    "folate_mcg": {"label": "Folate", "target": 400, "unit": "mcg"},
+    "choline_mg": {"label": "Choline", "target": 550, "unit": "mg"},
+    "vitamin_a_mcg": {"label": "Vitamin A", "target": 900, "unit": "mcg"},
+    "vitamin_c_mg": {"label": "Vitamin C", "target": 90, "unit": "mg"},
+    "vitamin_d_iu": {"label": "Vitamin D", "target": 600, "unit": "IU"},
+    "vitamin_e_mg": {"label": "Vitamin E", "target": 15, "unit": "mg"},
+    "vitamin_k_mcg": {"label": "Vitamin K", "target": 120, "unit": "mcg"},
+    "b1_mg": {"label": "B1", "target": 1.2, "unit": "mg"},
+    "b2_mg": {"label": "B2", "target": 1.3, "unit": "mg"},
+    "b3_mg": {"label": "B3", "target": 16, "unit": "mg"},
+    "b5_mg": {"label": "B5", "target": 5, "unit": "mg"},
+    "b6_mg": {"label": "B6", "target": 1.3, "unit": "mg"},
+    "b12_mcg": {"label": "B12", "target": 2.4, "unit": "mcg"}
+  },
+  "low_threshold_percent": 70,
+  "strong_threshold_percent": 110
+}
+

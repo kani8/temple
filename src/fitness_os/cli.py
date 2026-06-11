@@ -7,10 +7,11 @@ from dataclasses import asdict
 from datetime import date
 from pathlib import Path
 
-from .config import DATA_DIR, ensure_data_dirs, load_nutrition, load_profile, load_training
+from .config import DATA_DIR, ensure_data_dirs, load_micronutrients, load_nutrition, load_profile, load_training
 from .checkin import calorie_adjustment, load_bodyweights
 from .emailer import send_email
 from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, save_menu_file
+from .micronutrients import estimate_day
 from .nutrition import build_meal_plan
 from .render import render_plan, write_plan
 from .training import build_training_plan
@@ -43,6 +44,7 @@ def cmd_daily(args: argparse.Namespace) -> int:
     profile = load_profile()
     nutrition = load_nutrition()
     training = load_training()
+    micronutrients = load_micronutrients()
 
     try:
         menu = load_or_fetch_menu(today, nutrition, args.menu_file, args.no_fetch_menu)
@@ -52,7 +54,19 @@ def cmd_daily(args: argparse.Namespace) -> int:
 
     training_plan = build_training_plan(training, profile, today)
     meals, daily_totals = build_meal_plan(nutrition, menu)
-    markdown = render_plan(today, profile, nutrition, training, training_plan, meals, daily_totals, menu)
+    planned_items = [item for meal in meals for item in meal.items]
+    micronutrient_report = estimate_day(planned_items, micronutrients)
+    markdown = render_plan(
+        today,
+        profile,
+        nutrition,
+        training,
+        training_plan,
+        meals,
+        daily_totals,
+        menu,
+        micronutrient_report,
+    )
     path = write_plan(markdown, DATA_DIR / "plans", today)
 
     if args.json:
@@ -61,6 +75,7 @@ def cmd_daily(args: argparse.Namespace) -> int:
             "plan_path": str(path),
             "training": asdict(training_plan),
             "nutrition_totals": daily_totals,
+            "micronutrients": micronutrient_report,
             "menu_items": [asdict(item) for item in menu],
         }
         print(json.dumps(payload, indent=2))
