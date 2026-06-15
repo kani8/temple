@@ -267,11 +267,47 @@ def fill_remaining_with_staples(
     return planned
 
 
+def emergency_meal_plan(staples: list[FoodItem], nutrition_config: dict[str, Any]) -> tuple[list[Meal], dict[str, float]]:
+    targets = nutrition_config["daily_targets"]
+    breakfast = [
+        item_by_name(staples, name)
+        for name in nutrition_config["fixed_meals"]["breakfast"]
+    ]
+    pre_workout = [
+        item_by_name(staples, name)
+        for name in nutrition_config["fixed_meals"]["pre_workout"]
+    ]
+    lunch_items = [
+        item_by_name(staples, "Chicken breast, cooked, 8 oz"),
+        item_by_name(staples, "Cooked white rice, 1 cup").scaled(1.5),
+        item_by_name(staples, "Mixed vegetables, 2 cups"),
+    ]
+    base = breakfast + lunch_items + pre_workout
+    filled = fill_remaining_with_staples(base, staples, targets)
+    dinner_items = filled[len(base):]
+    note = "Emergency fallback because no visible cafeteria menu was parsed. Replace with Uber cafeteria equivalents when the menu is available."
+    meals = [
+        Meal("Emergency Breakfast", breakfast, note),
+        Meal("Emergency Lunch", lunch_items, note),
+        Meal("Emergency Pre-workout", pre_workout, note),
+        Meal("Emergency Dinner", dinner_items, note),
+    ]
+    return meals, totals([item for meal in meals for item in meal.items])
+
+
 def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> tuple[list[Meal], dict[str, float]]:
     staples = [FoodItem(**item, source="emergency-staple") for item in nutrition_config["emergency_staples"]]
     targets = nutrition_config["daily_targets"]
     meal_targets = nutrition_config["meal_targets"]
     candidates = meal_candidates(menu, nutrition_config)
+    cafeteria_available = any(
+        item.has_macros()
+        and (item.calories or 0) >= 80
+        and not is_drink(item)
+        for item in menu
+    )
+    if not cafeteria_available:
+        return emergency_meal_plan(staples, nutrition_config)
 
     used: set[str] = set()
     breakfast = choose_meal_items(candidates, nutrition_config, meal_targets["breakfast"], breakfast=True)
@@ -296,20 +332,7 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
 
     base = breakfast + lunch_items + pre_workout + dinner_items
     if not base:
-        breakfast = [
-            item_by_name(staples, name)
-            for name in nutrition_config["fixed_meals"]["breakfast"]
-        ]
-        pre_workout = [
-            item_by_name(staples, name)
-            for name in nutrition_config["fixed_meals"]["pre_workout"]
-        ]
-        lunch_items = [
-            item_by_name(staples, "Chicken breast, cooked, 8 oz"),
-            item_by_name(staples, "Cooked white rice, 1 cup").scaled(1.5),
-            item_by_name(staples, "Mixed vegetables, 2 cups"),
-        ]
-        base = breakfast + lunch_items + pre_workout
+        return emergency_meal_plan(staples, nutrition_config)
 
     day_total = totals(base)
     onsite_packaged = [FoodItem(**item, source="onsite-packaged") for item in nutrition_config.get("onsite_packaged", [])]

@@ -30,11 +30,14 @@ def load_or_fetch_menu(menu_date: date, nutrition: dict, menu_file: Path | None,
 
     saved_path = DATA_DIR / "menus" / f"{menu_date.isoformat()}.json"
     if saved_path.exists():
-        return load_menu_file(saved_path)
+        cached_menu = load_menu_file(saved_path)
+        if cached_menu:
+            return cached_menu
 
     html = fetch_menu_html(menu_date, nutrition["cafeteria"]["url_template"])
     menu = parse_menu(html)
-    save_menu_file(saved_path, menu)
+    if menu:
+        save_menu_file(saved_path, menu)
     return menu
 
 
