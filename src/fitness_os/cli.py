@@ -9,7 +9,8 @@ from pathlib import Path
 
 from .config import DATA_DIR, ensure_data_dirs, load_micronutrients, load_nutrition, load_profile, load_training
 from .checkin import calorie_adjustment, load_bodyweights
-from .emailer import send_email
+from .digest import build_html, build_text, fetch_prepu
+from .emailer import preview_html, send_email
 from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, save_menu_file
 from .micronutrients import estimate_day
 from .nutrition import build_meal_plan
@@ -41,9 +42,51 @@ def load_or_fetch_menu(menu_date: date, nutrition: dict, menu_file: Path | None,
     return menu
 
 
+def cmd_digest_debug(today: date) -> int:
+    """Explain precisely why the Prep-U section is or isn't available."""
+    import os
+    import sys as _sys
+    from .digest import DEFAULT_PREPU_DIRS, PrepUError, _python, fetch_prepu_strict, find_prepu_repo
+
+    print("Prep-U digest diagnostics")
+    print(f"  date            : {today.isoformat()}")
+    print(f"  PREPU_REPO env  : {os.getenv('PREPU_REPO') or '(unset)'}")
+    for path in DEFAULT_PREPU_DIRS:
+        marker = path / "platform" / "scripts" / "daily_brief.py"
+        print(f"  fallback path   : {path}  [{'found' if marker.exists() else 'missing'}]")
+    repo = find_prepu_repo()
+    print(f"  resolved repo   : {repo or '(none)'}")
+    print(f"  this python     : {_sys.executable}")
+    print(f"  subprocess uses : {_python() or '(none)'}")
+    print()
+
+    try:
+        data = fetch_prepu_strict(today)
+    except PrepUError as exc:
+        print(f"FAILED: {exc}")
+        print()
+        print("Most common causes:")
+        print("  - PREPU_REPO not set, or pointing somewhere without platform/scripts/daily_brief.py")
+        print("  - the repo lives outside ~/projects/ (pass PREPU_REPO explicitly)")
+        print("  - daily_brief.py raising - run it directly to see the traceback")
+        return 1
+
+    print("OK")
+    print(f"  week      : {data.get('week')}  phase {data.get('phase')}")
+    print(f"  topics    : {', '.join(data.get('topics') or []) or '(none)'}")
+    print(f"  rest day  : {data.get('rest_day')}")
+    print(f"  questions : {len(data.get('questions') or [])}")
+    print(f"  streak    : {data.get('streak')} days, {data.get('solved')} solved")
+    print(f"  html      : {len(data.get('html') or '')} bytes")
+    return 0
+
+
 def cmd_daily(args: argparse.Namespace) -> int:
     ensure_data_dirs()
     today = parse_date(args.date)
+
+    if getattr(args, "digest_debug", False):
+        return cmd_digest_debug(today)
     profile = load_profile()
     nutrition = load_nutrition()
     training = load_training()
@@ -85,9 +128,34 @@ def cmd_daily(args: argparse.Namespace) -> int:
     else:
         print(path)
 
-    if args.email:
-        subject = f"Fitness OS Plan - {today.isoformat()} - {training_plan.session_name}"
-        send_email(subject, markdown, path)
+    if args.preview:
+        out = preview_html(
+            f"Fitness OS Plan - {today.isoformat()} - {training_plan.session_name}",
+            markdown,
+            Path(args.preview),
+        )
+        print(f"preview written to {out}")
+
+    if args.email or args.digest:
+        prepu = fetch_prepu(today) if args.digest else None
+        if args.digest:
+            subject = f"Morning brief - {today.isoformat()} - {training_plan.session_name}"
+            html_body = build_html(today, markdown, prepu, training_plan.session_name)
+            text_body = build_text(today, markdown, prepu)
+            if prepu is None:
+                print("digest warning: Prep-U section unavailable, sending fitness only", file=sys.stderr)
+        else:
+            subject = f"Fitness OS Plan - {today.isoformat()} - {training_plan.session_name}"
+            html_body = None
+            text_body = markdown
+
+        # The digest already contains the whole plan in its body, so attaching
+        # the source Markdown adds nothing and only invites clients to render it
+        # inline. Keep the attachment for the plain --email path, where it is a
+        # useful copy, and allow --attach to force it back on.
+        attach = path if (args.email and not args.digest) or args.attach else None
+
+        send_email(subject, text_body, attach, html_body=html_body)
         print(f"sent email to configured EMAIL_TO for {today.isoformat()}")
 
     return 0
@@ -112,6 +180,14 @@ def build_parser() -> argparse.ArgumentParser:
     daily.add_argument("--menu-file", type=Path, help="Use a saved menu JSON file instead of fetching.")
     daily.add_argument("--no-fetch-menu", action="store_true", help="Skip cafeteria fetch and use staple defaults.")
     daily.add_argument("--email", action="store_true", help="Email the generated plan using SMTP env vars.")
+    daily.add_argument("--digest", action="store_true",
+                       help="Email one combined brief: Prep-U study plan + fitness plan. Implies --email.")
+    daily.add_argument("--digest-debug", action="store_true",
+                       help="Diagnose the Prep-U half of the digest and exit. Sends nothing.")
+    daily.add_argument("--preview", metavar="PATH",
+                       help="Write the rendered HTML email to PATH instead of sending. No SMTP needed.")
+    daily.add_argument("--attach", action="store_true",
+                       help="Attach the plan's source Markdown. Off by default for --digest.")
     daily.add_argument("--json", action="store_true", help="Print machine-readable output.")
     daily.set_defaults(func=cmd_daily)
 

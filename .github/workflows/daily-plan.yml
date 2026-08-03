@@ -2,9 +2,21 @@ name: Daily Fitness Plan
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_email:
+        description: "Generate and commit only, do not send the digest"
+        type: boolean
+        default: false
   schedule:
-    # GitHub Actions cron is UTC. This is 6:00am Pacific during daylight saving time.
+    # GitHub Actions cron is UTC. 13:00 UTC = 6:00am Pacific during daylight
+    # saving time, 5:00am during standard time. Adjust to "0 14 * * *" in winter
+    # if the hour matters to you.
     - cron: "0 13 * * *"
+
+# Never let two runs race on the same commit.
+concurrency:
+  group: daily-plan
+  cancel-in-progress: false
 
 jobs:
   daily-plan:
@@ -12,9 +24,36 @@ jobs:
     permissions:
       contents: write
 
+    env:
+      # daily_brief.py emits non-ASCII (streak flame, check marks). Ubuntu
+      # runners are UTF-8 already, but this makes the behaviour explicit and
+      # matches what the Windows path forces.
+      PYTHONUTF8: "1"
+      PYTHONIOENCODING: "utf-8"
+      # Secrets cannot be referenced directly inside a step-level `if`, so
+      # resolve presence to a plain string here and test that instead.
+      HAS_PREPU_TOKEN: ${{ secrets.PREPU_TOKEN != '' }}
+
     steps:
-      - name: Checkout
+      - name: Checkout fitness-os
         uses: actions/checkout@v4
+
+      # Cross-repo checkout needs a PAT: the default GITHUB_TOKEN is scoped to
+      # this repository only. Create a fine-grained token with Contents:read on
+      # the prep repo and store it as the PREPU_TOKEN secret.
+      #
+      # If the secret is absent the step is skipped and the digest degrades to
+      # fitness-only rather than failing the run.
+      - name: Checkout Prep-U
+        id: prepu
+        if: env.HAS_PREPU_TOKEN == 'true'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: kani8/interview-prep-questions
+          token: ${{ secrets.PREPU_TOKEN }}
+          path: prepu
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,7 +63,28 @@ jobs:
       - name: Install package
         run: python -m pip install -e .
 
-      - name: Generate and email plan
+      # Generate FIRST, commit SECOND, email LAST.
+      #
+      # The original ordering ran `daily --email` as one step before the commit,
+      # so any SMTP problem failed the job and the commit never happened. That is
+      # why data/menus and data/plans stopped updating on 2026-06-21 while the
+      # scraper was working fine. Losing a day's email is an annoyance; losing a
+      # day's scraped menu is permanent, because the cafeteria site only serves
+      # the current window.
+      - name: Generate daily plan
+        run: fitness-os daily
+
+      - name: Commit generated plan
+        run: |
+          git config user.name "fitness-os-bot"
+          git config user.email "fitness-os-bot@users.noreply.github.com"
+          git add data/menus data/plans
+          git diff --cached --quiet || git commit -m "Add daily fitness plan for $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Send morning digest
+        if: ${{ !inputs.skip_email }}
+        continue-on-error: true
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -32,13 +92,23 @@ jobs:
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        run: fitness-os daily --email
-
-      - name: Commit generated plan
+          PREPU_REPO: ${{ github.workspace }}/prepu
         run: |
-          git config user.name "fitness-os-bot"
-          git config user.email "fitness-os-bot@users.noreply.github.com"
-          git add data/menus data/plans
-          git diff --cached --quiet || git commit -m "Add daily fitness plan"
-          git push
+          if [ -f "$PREPU_REPO/platform/scripts/daily_brief.py" ]; then
+            echo "Prep-U checkout present - sending combined digest."
+            fitness-os daily --digest-debug || true
+          else
+            echo "::warning::Prep-U checkout missing - digest will be fitness-only."
+          fi
+          fitness-os daily --digest
 
+      - name: Report run
+        if: always()
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          if [ ! -s "data/menus/$TODAY.json" ]; then
+            echo "::warning::No menu captured for $TODAY (weekend, holiday, or the page changed shape)."
+          else
+            COUNT=$(python -c "import json;print(len(json.load(open('data/menus/$TODAY.json'))))")
+            echo "Captured $COUNT menu items for $TODAY."
+          fi
