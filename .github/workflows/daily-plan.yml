@@ -8,10 +8,16 @@ on:
         type: boolean
         default: false
   schedule:
-    # GitHub Actions cron is UTC. 13:00 UTC = 6:00am Pacific during daylight
-    # saving time, 5:00am during standard time. Adjust to "0 14 * * *" in winter
-    # if the hour matters to you.
-    - cron: "0 13 * * *"
+    # GitHub delays scheduled runs under load, worst at the top of the hour:
+    # the old "0 13 * * *" trigger routinely started 3-6 hours late. So start
+    # well before 6am, off the hour, with backups in case one trigger is
+    # dropped, and let the "Wait until 6:00am Pacific" step hold the email.
+    # Whichever run starts first sends; later runs see the sent marker and skip.
+    # All times UTC. 09:17 UTC is 2:17am PDT / 1:17am PST, which keeps the
+    # longest wait (to 14:00 UTC in winter) under the 6-hour job limit.
+    - cron: "17 9 * * *"
+    - cron: "47 10 * * *"
+    - cron: "17 12 * * *"
 
 # Never let two runs race on the same commit.
 concurrency:
@@ -21,6 +27,7 @@ concurrency:
 jobs:
   daily-plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     permissions:
       contents: write
 
@@ -30,6 +37,9 @@ jobs:
       # matches what the Windows path forces.
       PYTHONUTF8: "1"
       PYTHONIOENCODING: "utf-8"
+      # Plans are dated in Pacific time. With the runner on UTC, date.today()
+      # and `date` would roll over at 5pm/4pm local instead of midnight.
+      TZ: "America/Los_Angeles"
       # Secrets cannot be referenced directly inside a step-level `if`, so
       # resolve presence to a plain string here and test that instead.
       HAS_PREPU_TOKEN: ${{ secrets.PREPU_TOKEN != '' }}
@@ -79,11 +89,41 @@ jobs:
           git config user.name "fitness-os-bot"
           git config user.email "fitness-os-bot@users.noreply.github.com"
           git add data/menus data/plans
-          git diff --cached --quiet || git commit -m "Add daily fitness plan for $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "Add daily fitness plan for $(date +%Y-%m-%d)"
           git push
 
+      - name: Check whether today's digest already went out
+        id: sent
+        run: |
+          git pull --rebase --quiet
+          MARKER="data/sent/$(date +%Y-%m-%d)"
+          echo "marker=$MARKER" >> "$GITHUB_OUTPUT"
+          if [ -f "$MARKER" ]; then
+            echo "already=true" >> "$GITHUB_OUTPUT"
+            echo "Digest already sent today ($MARKER) - skipping."
+          else
+            echo "already=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Manual runs send immediately; scheduled runs hold until 6:00am Pacific
+      # (DST-aware, since TZ is set above). If the run started after 6am it
+      # sends right away.
+      - name: Wait until 6:00am Pacific
+        if: ${{ github.event_name == 'schedule' && steps.sent.outputs.already != 'true' }}
+        run: |
+          TARGET=$(date -d "today 06:00" +%s)
+          NOW=$(date +%s)
+          WAIT=$((TARGET - NOW))
+          if [ "$WAIT" -gt 0 ]; then
+            echo "Sleeping ${WAIT}s until $(date -d "@$TARGET")."
+            sleep "$WAIT"
+          else
+            echo "Already past 6:00am Pacific - sending now."
+          fi
+
       - name: Send morning digest
-        if: ${{ !inputs.skip_email }}
+        id: send
+        if: ${{ !inputs.skip_email && steps.sent.outputs.already != 'true' }}
         continue-on-error: true
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -102,10 +142,20 @@ jobs:
           fi
           fitness-os daily --digest
 
+      # Record the send so the backup triggers don't email a second time.
+      - name: Mark digest as sent
+        if: ${{ steps.send.outcome == 'success' }}
+        run: |
+          mkdir -p data/sent
+          date -Iseconds > "${{ steps.sent.outputs.marker }}"
+          git add data/sent
+          git commit -m "Mark digest sent for $(date +%Y-%m-%d)"
+          git pull --rebase --quiet && git push
+
       - name: Report run
         if: always()
         run: |
-          TODAY=$(date -u +%Y-%m-%d)
+          TODAY=$(date +%Y-%m-%d)
           if [ ! -s "data/menus/$TODAY.json" ]; then
             echo "::warning::No menu captured for $TODAY (weekend, holiday, or the page changed shape)."
           else

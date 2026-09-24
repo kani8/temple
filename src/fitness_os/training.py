@@ -92,7 +92,7 @@ def cardio_for_session(session_key: str, day_number: int) -> CardioPlan:
             intensity="Zone 2; 10-12% grade at 3.0-3.5 mph",
             heart_rate_target="125-140 bpm",
             timing="Immediately post-lift or later same day",
-            steps_target="8,000-10,000 total daily steps",
+            steps_target="10,000-12,000 total daily steps",
             notes="Nasal-breathing pace. Add speed only if HR stays below target.",
         )
     if day_number % 7 == 5:
@@ -103,7 +103,7 @@ def cardio_for_session(session_key: str, day_number: int) -> CardioPlan:
             intensity="Hard rounds at RPE 8-9; easy rounds at RPE 2-3",
             heart_rate_target="Recover below 140 bpm before the next hard round when possible",
             timing="Post-lower or separate session 6+ hours from lifting",
-            steps_target="8,000-10,000 total daily steps",
+            steps_target="10,000-12,000 total daily steps",
             notes="Skip intervals if knee pain is above 3/10, sleep was poor, or leg performance is dropping.",
         )
     return CardioPlan(
@@ -113,7 +113,7 @@ def cardio_for_session(session_key: str, day_number: int) -> CardioPlan:
         intensity="Zone 1-2; easy flush pace",
         heart_rate_target="110-130 bpm",
         timing="Post-lower",
-        steps_target="8,000-10,000 total daily steps",
+        steps_target="10,000-12,000 total daily steps",
         notes="Keep this easy. The step target is the required cardio anchor today.",
     )
 

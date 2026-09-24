@@ -1,11 +1,11 @@
 # Fitness OS
 
-Daily training and nutrition planner for a lean bulk from 167 lb to 195-200 lb.
+Daily training and nutrition planner. Current phase (from 2026-09-23): recomp from 185 lb @ ~30% BF toward 175-180 lb @ 20-22% BF, rebuilding strength from re-baselined loads.
 
 The system generates:
 
 - A daily seven-day PPL training plan with exact target loads, reps, RIR, and week-32 strength milestones.
-- An Uber-first macro plan targeting 2,900 calories, 190g protein, 385g carbs, 67g fat, and 35-45g fiber.
+- An Uber-first macro plan targeting 2,500 calories, 190g protein, 280g carbs, 68g fat, and 35-45g fiber.
 - A Bon Appetit cafeteria menu ingest for Uber HQ, plus on-site packaged Evolve protein shakes.
 - Ingredient-based micronutrient estimates, priority gap fixes, and confidence signals.
 - A 6am email workflow through GitHub Actions.
@@ -38,7 +38,7 @@ Then run:
 fitness-os weekly
 ```
 
-It compares the latest 7-day average against the previous 7-day average and recommends `+150`, `0`, or `-150` calories using the titration rules in `config/nutrition.json`.
+It compares the latest 7-day average against the previous 7-day average and recommends `+150`, `0`, or `-150` calories using the titration rules in `config/nutrition.json`. For the recomp, losing faster than 1 lb/week adds 150 calories and losing less than 0.25 lb/week removes 150.
 
 ## Email Setup
 
@@ -63,15 +63,15 @@ fitness-os daily --email
 
 ## GitHub Actions
 
-`.github/workflows/daily-plan.yml` runs at `13:00 UTC`, which is 6:00am Pacific during daylight saving time. In standard time, change it to `14:00 UTC` if you want exactly 6:00am.
+`.github/workflows/daily-plan.yml` sends the email at 6:00am Pacific, in both daylight and standard time. GitHub often starts scheduled runs hours late, so the workflow is triggered early (09:17, 10:47 and 12:17 UTC) and waits until 6:00am Pacific before sending. The first run to start sends the email and writes `data/sent/YYYY-MM-DD`; the backup runs see that file and skip. Manual runs send straight away.
 
 The workflow:
 
 1. Checks out the repo.
 2. Installs the package.
-3. Generates the daily plan.
-4. Emails it using SMTP secrets.
-5. Commits `data/menus` and `data/plans` back to the repo.
+3. Generates the daily plan and commits `data/menus` and `data/plans`.
+4. Waits until 6:00am Pacific (scheduled runs only).
+5. Emails it using SMTP secrets and records the send in `data/sent`.
 
 ## Calibration
 
