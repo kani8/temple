@@ -75,7 +75,7 @@ The workflow:
 
 ## Calibration
 
-The starting weights in `config/training.json` are conservative seed values. Replace each `baseline_lb` after your first real session on that machine.
+Loads follow a front-loaded 'regain' curve (`REGAIN_CURVE_EXPONENT` in `training.py`): big jumps in the first weeks while relearned strength comes back, flattening toward the week-32 goal. The starting weights in `config/training.json` were re-baselined on 2026-09-23 from an estimated regression. Replace each `baseline_lb` after your first real session on that machine.
 
 Use this rule:
 
@@ -104,6 +104,20 @@ Set in `config/nutrition.json` under `cafeteria`:
 ## Wellness Bar Protein Smoothies
 
 Protein smoothies come from the Wellness station on the Mission Bay 3 cafe page (`wellness_url_template`), cached in `data/menus/wellness/YYYY-MM-DD.json`. When a wellness-bar protein smoothie is on the menu, it replaces the Evolve shakes; Evolve is only used on days the smoothie isn't available. `planning.max_protein_drinks_per_day` caps how many the protein top-up adds.
+
+## Nutritionist Routine
+
+A Claude cloud routine ("Temple nutritionist") runs on weekday mornings before the email goes out. It reads `fitness-os candidates --date YYYY-MM-DD` (the day's menu without pork, plus targets and the training session), chooses the meals, and commits `data/selections/YYYY-MM-DD.json`. Right before sending, the workflow rebuilds the plan and uses that selection in place of the planner's own pick. Macros always come from the scraped menu data; items not on the menu, or pork items, are dropped with a warning. If no selection exists, the planner's pick is used. Format is documented in `src/fitness_os/selection.py`.
+
+To make menus available early, each workflow run also caches the next three weekdays' menus with `fitness-os prefetch`.
+
+## Weekly Check-In Routine
+
+Reply to any morning email with your bodyweight and lifts that felt too easy or too hard. A weekly Claude routine reads those replies, updates `data/logs/bodyweight.csv`, adjusts `baseline_lb` for the lifts you mentioned, applies the `fitness-os weekly` calorie recommendation, commits the changes, and emails a summary.
+
+## Email Routing
+
+Emails go to `EMAIL_TO` (a `+temple` address) with a `[Temple]` subject prefix, so a Gmail filter can put them in their own label.
 
 ## Micronutrients
 

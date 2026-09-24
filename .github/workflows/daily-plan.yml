@@ -81,8 +81,12 @@ jobs:
       # scraper was working fine. Losing a day's email is an annoyance; losing a
       # day's scraped menu is permanent, because the cafeteria site only serves
       # the current window.
+      # Also cache the next few weekdays' menus so the nutritionist routine
+      # (a Claude cloud agent, ~4:30am PT) can plan from committed data.
       - name: Generate daily plan
-        run: fitness-os daily
+        run: |
+          fitness-os daily
+          fitness-os prefetch --days 3 || echo "::warning::Menu prefetch failed."
 
       - name: Commit generated plan
         run: |
@@ -90,7 +94,7 @@ jobs:
           git config user.email "fitness-os-bot@users.noreply.github.com"
           git add data/menus data/plans
           git diff --cached --quiet || git commit -m "Add daily fitness plan for $(date +%Y-%m-%d)"
-          git push
+          git pull --rebase --quiet && git push
 
       - name: Check whether today's digest already went out
         id: sent
@@ -120,6 +124,23 @@ jobs:
           else
             echo "Already past 6:00am Pacific - sending now."
           fi
+
+      # The nutritionist routine commits data/selections/<date>.json while this
+      # run waits. Rebuild the plan so the email uses its picks; with no
+      # selection the plan is unchanged.
+      - name: Rebuild plan with nutritionist selection
+        if: ${{ steps.sent.outputs.already != 'true' }}
+        run: |
+          git pull --rebase --quiet
+          if [ -f "data/selections/$(date +%Y-%m-%d).json" ]; then
+            echo "Using nutritionist selection."
+          else
+            echo "::notice::No nutritionist selection for today - using the planner's own pick."
+          fi
+          fitness-os daily
+          git add data/menus data/plans
+          git diff --cached --quiet || git commit -m "Apply nutritionist selection for $(date +%Y-%m-%d)"
+          git pull --rebase --quiet && git push
 
       - name: Send morning digest
         id: send

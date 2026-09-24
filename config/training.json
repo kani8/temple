@@ -11,7 +11,7 @@
   },
   "exercise_targets": {
     "machine_chest_press_flat": {"name": "Machine chest press, flat", "baseline_lb": 130, "goal_week_32_lb": 210, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_a"},
-    "lying_db_press_incline_neutral": {"name": "Lying DB press, incline neutral", "baseline_lb": 50, "goal_week_32_lb": 80, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "push_a", "per_hand": true},
+    "lying_db_press_incline_neutral": {"name": "Lying DB press, incline neutral", "baseline_lb": 50, "goal_week_32_lb": 90, "increment_lb": 5, "sets": 2, "rep_min": 10, "rep_max": 12, "session": "push_a", "per_hand": true},
     "smith_incline_press": {"name": "Smith incline press, 30 degrees", "baseline_lb": 115, "goal_week_32_lb": 185, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_b"},
     "machine_shoulder_press": {"name": "Machine shoulder press", "baseline_lb": 90, "goal_week_32_lb": 145, "increment_lb": 5, "sets": 2, "rep_min": 8, "rep_max": 10, "session": "push_b"},
     "cable_lateral_raise": {"name": "Cable lateral raise", "baseline_lb": 17.5, "goal_week_32_lb": 30, "increment_lb": 2.5, "sets": 2, "rep_min": 12, "rep_max": 15, "session": "push_c", "per_hand": true},

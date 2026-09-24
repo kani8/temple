@@ -47,11 +47,18 @@ def program_day(program_start: date, today: date) -> int:
     return max(0, (today - program_start).days)
 
 
-def planned_load(exercise: dict[str, Any], week: int) -> float:
+# Exponent for the "regain" progression curve. Relearned strength comes back
+# fastest early (muscle memory), so progress follows 1 - (1 - t)^k: big jumps in
+# the first weeks that flatten out approaching the week-32 goal. k=1 is linear.
+REGAIN_CURVE_EXPONENT = 2.5
+
+
+def planned_load(exercise: dict[str, Any], week: int, curve: float = REGAIN_CURVE_EXPONENT) -> float:
     baseline = float(exercise["baseline_lb"])
     goal = float(exercise["goal_week_32_lb"])
     increment = float(exercise["increment_lb"])
-    progress = min(max(week - 1, 0), 31) / 31
+    t = min(max(week - 1, 0), 31) / 31
+    progress = 1 - (1 - t) ** curve
     raw = baseline + ((goal - baseline) * progress)
     step = abs(increment) if increment else 5
     rounded = round(raw / step) * step

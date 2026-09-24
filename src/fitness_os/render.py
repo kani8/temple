@@ -136,6 +136,7 @@ def render_plan(
     daily_totals: dict[str, float],
     menu: list[FoodItem],
     micronutrient_report: dict[str, Any] | None = None,
+    nutritionist_note: str | None = None,
 ) -> str:
     targets = nutrition_config["daily_targets"]
     delta = macro_delta(daily_totals, targets)
@@ -197,6 +198,7 @@ def render_plan(
             "",
             f"Menu ingest: {menu_status}.",
             "",
+            *([f"**Nutritionist:** {nutritionist_note}", ""] if nutritionist_note else []),
             f"Targets: **{targets['calories']} cal**, **{targets['protein_g']}P**, **{targets['carbs_g']}C**, **{targets['fat_g']}F**, **{targets['fiber_g_min']}-{targets['fiber_g_max']}g fiber**.",
             "",
         ]
@@ -253,6 +255,8 @@ def render_plan(
     lines.extend(
         [
             "## Evening Log",
+            "",
+            "Reply to this email with your bodyweight and any lift that felt too easy or too hard (e.g. `186.2, incline 55x12 easy`). The weekly check-in reads replies and adjusts loads and calories.",
             "",
             "- Morning bodyweight:",
             "- Workout completed? Y/N:",
