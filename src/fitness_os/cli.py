@@ -11,7 +11,7 @@ from .config import DATA_DIR, ensure_data_dirs, load_micronutrients, load_nutrit
 from .checkin import calorie_adjustment, load_bodyweights
 from .digest import build_html, build_text, fetch_prepu
 from .emailer import preview_html, send_email
-from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, save_menu_file
+from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, parse_wellness_items, save_menu_file
 from .micronutrients import estimate_day
 from .nutrition import build_meal_plan
 from .render import render_plan, write_plan
@@ -40,6 +40,27 @@ def load_or_fetch_menu(menu_date: date, nutrition: dict, menu_file: Path | None,
     if menu:
         save_menu_file(saved_path, menu)
     return menu
+
+
+def load_or_fetch_wellness(menu_date: date, nutrition: dict) -> list[FoodItem]:
+    """Wellness-bar items (protein smoothies) live on a separate cafe page."""
+    cafeteria = nutrition["cafeteria"]
+    url_template = cafeteria.get("wellness_url_template")
+    if not url_template:
+        return []
+
+    saved_path = DATA_DIR / "menus" / "wellness" / f"{menu_date.isoformat()}.json"
+    if saved_path.exists():
+        cached = load_menu_file(saved_path)
+        if cached:
+            return cached
+
+    html = fetch_menu_html(menu_date, url_template)
+    items = parse_wellness_items(html, cafeteria.get("wellness_station", "Wellness"))
+    if items:
+        saved_path.parent.mkdir(parents=True, exist_ok=True)
+        save_menu_file(saved_path, items)
+    return items
 
 
 def cmd_digest_debug(today: date) -> int:
@@ -97,6 +118,12 @@ def cmd_daily(args: argparse.Namespace) -> int:
     except RuntimeError as exc:
         print(f"menu warning: {exc}", file=sys.stderr)
         menu = []
+
+    if not args.menu_file and not args.no_fetch_menu:
+        try:
+            menu += load_or_fetch_wellness(today, nutrition)
+        except RuntimeError as exc:
+            print(f"wellness menu warning: {exc}", file=sys.stderr)
 
     training_plan = build_training_plan(training, profile, today)
     meals, daily_totals = build_meal_plan(nutrition, menu)

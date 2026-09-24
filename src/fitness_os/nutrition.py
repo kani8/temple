@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from itertools import combinations
 from typing import Any
@@ -32,7 +33,26 @@ def item_by_name(staples: list[FoodItem], name: str) -> FoodItem:
     raise KeyError(f"Missing staple: {name}")
 
 
-def score_cafeteria_item(item: FoodItem, preferred: list[str], avoid: list[str]) -> float:
+# Flavourings that mention meat or fish but don't make a dish a meat dish.
+MEAT_FLAVOURINGS = re.compile(r"(vegan )?fish sauce|(chicken|beef|fish) (stock|broth|base|bouillon)")
+
+
+def is_vegetarian_protein(item: FoodItem, meat_keywords: list[str]) -> bool:
+    """A protein-heavy dish with no meat or fish in its name or ingredients."""
+    if not meat_keywords or (item.protein_g or 0) < 12 or item.source != "cafeteria-json":
+        return False
+    text = MEAT_FLAVOURINGS.sub(" ", f"{item.name} {item.ingredients or ''}".lower())
+    return not any(keyword.lower() in text for keyword in meat_keywords)
+
+
+def score_cafeteria_item(
+    item: FoodItem,
+    preferred: list[str],
+    avoid: list[str],
+    weights: dict[str, float] | None = None,
+    meat_keywords: list[str] | None = None,
+    vegetarian_penalty: float = 0,
+) -> float:
     name = item.name.lower()
     score = 0.0
     for keyword in preferred:
@@ -41,6 +61,11 @@ def score_cafeteria_item(item: FoodItem, preferred: list[str], avoid: list[str])
     for keyword in avoid:
         if keyword.lower() in name:
             score -= 8
+    for keyword, weight in (weights or {}).items():
+        if keyword.lower() in name:
+            score += float(weight)
+    if vegetarian_penalty and is_vegetarian_protein(item, meat_keywords or []):
+        score -= float(vegetarian_penalty)
     if item.has_macros():
         score += (item.protein_g or 0) * 1.6
         score += min(item.carbs_g or 0, 80) * 0.15
@@ -56,6 +81,39 @@ def is_drink(item: FoodItem) -> bool:
 
 def is_evolve(item: FoodItem) -> bool:
     return "evolve protein shake" in item.name.lower()
+
+
+def is_protein_smoothie(item: FoodItem) -> bool:
+    return (
+        item.source == "wellness-bar"
+        and "protein" in item.name.lower()
+        and (item.protein_g or 0) >= 15
+    )
+
+
+def is_protein_drink(item: FoodItem) -> bool:
+    """Wellness-bar protein smoothies and packaged Evolve shakes fill the same slot."""
+    return is_protein_smoothie(item) or is_evolve(item)
+
+
+def is_excluded(item: FoodItem, nutrition_config: dict[str, Any]) -> bool:
+    """Hard food exclusions (e.g. no pork), checked against name and ingredients.
+
+    Exception phrases such as "chicken sausage" or "plant-based chorizo" are
+    removed first so they don't trip the broader exclude patterns, and items
+    named as plant-based/vegan are exempt outright.
+    """
+    cafeteria = nutrition_config["cafeteria"]
+    patterns = cafeteria.get("exclude_patterns", [])
+    if not patterns:
+        return False
+    name = item.name.lower()
+    if any(word.lower() in name for word in cafeteria.get("exclude_exempt_names", [])):
+        return False
+    text = f"{name} {item.ingredients or ''}".lower()
+    for phrase in cafeteria.get("exclude_exceptions", []):
+        text = text.replace(phrase.lower(), " ")
+    return any(re.search(pattern, text) for pattern in patterns)
 
 
 def is_breakfast_item(item: FoodItem) -> bool:
@@ -84,7 +142,12 @@ def meal_candidates(menu: list[FoodItem], nutrition_config: dict[str, Any]) -> l
         if item.has_macros()
         and (item.calories or 0) >= 80
         and (not is_drink(item))
+        and (item.source != "wellness-bar" or is_protein_smoothie(item))
+        and not is_excluded(item, nutrition_config)
     ]
+    # Wellness-bar protein smoothies replace Evolve shakes whenever they're on.
+    if any(is_protein_smoothie(item) for item in cafe_items):
+        return cafe_items
     packaged = [
         FoodItem(**item, source="onsite-packaged")
         for item in nutrition_config.get("onsite_packaged", [])
@@ -93,12 +156,18 @@ def meal_candidates(menu: list[FoodItem], nutrition_config: dict[str, Any]) -> l
 
 
 def candidate_rank(item: FoodItem, nutrition_config: dict[str, Any]) -> float:
+    # Protein smoothies from the wellness bar are preferred over Evolve shakes.
+    if is_protein_smoothie(item):
+        return 70
     if is_evolve(item):
         return 65
     return score_cafeteria_item(
         item,
         nutrition_config["cafeteria"]["preferred_keywords"],
         nutrition_config["cafeteria"]["avoid_keywords"],
+        nutrition_config["cafeteria"].get("keyword_weights"),
+        nutrition_config["cafeteria"].get("meat_keywords"),
+        nutrition_config["cafeteria"].get("vegetarian_protein_penalty", 0),
     )
 
 
@@ -115,14 +184,14 @@ def choose_meal_items(
     excluded = exclude_names or set()
     pool = [
         item for item in candidates
-        if item.name not in excluded or is_evolve(item)
+        if item.name not in excluded or is_protein_drink(item)
     ]
     if breakfast:
-        pool = [item for item in pool if is_breakfast_item(item) or is_evolve(item)]
+        pool = [item for item in pool if is_breakfast_item(item) or is_protein_drink(item)]
     elif pre_workout:
         pool = [
             item for item in pool
-            if is_evolve(item)
+            if is_protein_drink(item)
             or "bagel" in item.name.lower()
             or "bread" in item.name.lower()
             or "rice" in item.name.lower()
@@ -132,9 +201,11 @@ def choose_meal_items(
     else:
         pool = [item for item in pool if not is_breakfast_item(item) or (item.protein_g or 0) >= 15]
     if not allow_evolve:
-        pool = [item for item in pool if not is_evolve(item)]
+        pool = [item for item in pool if not is_protein_drink(item)]
 
     ranked = sorted(pool, key=lambda item: candidate_rank(item, nutrition_config), reverse=True)[:26]
+    meat_keywords = nutrition_config["cafeteria"].get("meat_keywords", [])
+    veggie_penalty = float(nutrition_config["cafeteria"].get("vegetarian_meal_penalty", 0))
     if not ranked:
         return []
 
@@ -158,10 +229,12 @@ def choose_meal_items(
         penalty += max(total["calories"] - target["calories"] - 180, 0) / 60
         if pre_workout and total["fat_g"] > 12:
             penalty += 5
-        if sum(1 for item in items if is_evolve(item)) > 1:
+        if sum(1 for item in items if is_protein_drink(item)) > 1:
             penalty += 12
-        if breakfast and not any(is_evolve(item) or (item.protein_g or 0) >= 10 for item in items):
+        if breakfast and not any(is_protein_drink(item) or (item.protein_g or 0) >= 10 for item in items):
             penalty += 8
+        # Prefer chicken/meat over veggie proteins even at some cost to macro fit.
+        penalty += veggie_penalty * sum(1 for item in items if is_vegetarian_protein(item, meat_keywords))
         quality_bonus = sum(candidate_rank(item, nutrition_config) for item in items) / 45
         return penalty - quality_bonus
 
@@ -311,7 +384,7 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
 
     used: set[str] = set()
     breakfast = choose_meal_items(candidates, nutrition_config, meal_targets["breakfast"], breakfast=True)
-    used.update(item.name for item in breakfast if not is_evolve(item))
+    used.update(item.name for item in breakfast if not is_protein_drink(item))
     lunch_items = choose_meal_items(
         candidates,
         nutrition_config,
@@ -319,9 +392,9 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
         allow_evolve=False,
         exclude_names=used,
     )
-    used.update(item.name for item in lunch_items if not is_evolve(item))
+    used.update(item.name for item in lunch_items if not is_protein_drink(item))
     pre_workout = choose_meal_items(candidates, nutrition_config, meal_targets["pre_workout"], pre_workout=True)
-    used.update(item.name for item in pre_workout if not is_evolve(item))
+    used.update(item.name for item in pre_workout if not is_protein_drink(item))
     dinner_items = choose_meal_items(
         candidates,
         nutrition_config,
@@ -335,12 +408,20 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
         return emergency_meal_plan(staples, nutrition_config)
 
     day_total = totals(base)
+    # Top up protein with wellness-bar protein smoothies first, Evolve shakes after.
+    smoothies = sorted(
+        [item for item in candidates if is_protein_smoothie(item)],
+        key=lambda item: item.protein_g or 0,
+        reverse=True,
+    )
     onsite_packaged = [FoodItem(**item, source="onsite-packaged") for item in nutrition_config.get("onsite_packaged", [])]
+    protein_drinks = smoothies or onsite_packaged
     shake_idx = 0
-    existing_shakes = sum(1 for item in base if is_evolve(item))
-    max_shakes = int(nutrition_config.get("planning", {}).get("max_evolve_shakes_per_day", 2))
-    while day_total["protein_g"] < targets["protein_g"] - 8 and onsite_packaged and existing_shakes + shake_idx < max_shakes:
-        dinner_items.append(onsite_packaged[shake_idx % len(onsite_packaged)])
+    existing_shakes = sum(1 for item in base if is_protein_drink(item))
+    planning = nutrition_config.get("planning", {})
+    max_shakes = int(planning.get("max_protein_drinks_per_day", planning.get("max_evolve_shakes_per_day", 2)))
+    while day_total["protein_g"] < targets["protein_g"] - 8 and protein_drinks and existing_shakes + shake_idx < max_shakes:
+        dinner_items.append(protein_drinks[shake_idx % len(protein_drinks)])
         shake_idx += 1
         day_total = totals(breakfast + lunch_items + pre_workout + dinner_items)
         if shake_idx > 3:
@@ -350,7 +431,7 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
     carb_candidates = sorted(
         [
             item for item in candidates
-            if not is_evolve(item)
+            if not is_protein_drink(item)
             and (item.carbs_g or 0) >= 25
             and (item.fat_g or 0) <= 8
             and item.name not in {existing.name for existing in dinner_items}
@@ -365,10 +446,10 @@ def build_meal_plan(nutrition_config: dict[str, Any], menu: list[FoodItem]) -> t
         dinner_items.extend(filled[len(breakfast + lunch_items + pre_workout + dinner_items):])
 
     meals = [
-        Meal("Uber Breakfast", breakfast, "Chosen from cafeteria breakfast/continental options plus Evolve if useful."),
+        Meal("Uber Breakfast", breakfast, "Chosen from cafeteria breakfast/continental options plus a protein smoothie or Evolve if useful."),
         Meal("Uber HQ Lunch", lunch_items, "Chosen from live Bon Appetit nutrition data."),
         Meal("Uber Pre-workout", pre_workout, "Uber grab-and-go friendly; eat 60-90 min before lifting."),
-        Meal("Uber Post-workout / Dinner", dinner_items, "Cafeteria and packaged items selected to close the daily gaps."),
+        Meal("Uber Post-workout / Dinner", dinner_items, "Cafeteria items, wellness-bar protein smoothies, and packaged shakes selected to close the daily gaps."),
     ]
     return meals, totals([item for meal in meals for item in meal.items])
 

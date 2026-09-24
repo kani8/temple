@@ -316,6 +316,17 @@ def parse_menu(html_text: str) -> list[FoodItem]:
     return visible_items
 
 
+def parse_wellness_items(html_text: str, station: str) -> list[FoodItem]:
+    """Keep only the wellness-bar station (smoothies, juices) from a cafe page."""
+    items = []
+    for item in parse_menu(html_text):
+        if station.lower() not in (item.station or "").lower():
+            continue
+        item.source = "wellness-bar"
+        items.append(item)
+    return items
+
+
 def load_menu_file(path: Path) -> list[FoodItem]:
     raw = json.loads(path.read_text(encoding="utf-8"))
     return [FoodItem(**entry) for entry in raw]

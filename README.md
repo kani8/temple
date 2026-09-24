@@ -94,6 +94,17 @@ Hidden nutrition records are excluded from meal planning. This prevents reusable
 
 By default `config/nutrition.json` sets `planning.home_fallback_allowed` to `false`, so normal plans use Uber cafeteria items and on-site packaged options only. Turn it on only if you want emergency home foods like whey, rice, eggs, or potatoes to fill gaps when the cafeteria data is unavailable.
 
+## Food Preferences
+
+Set in `config/nutrition.json` under `cafeteria`:
+
+- `exclude_patterns`: hard excludes checked against item names and ingredients (currently: no pork, including ham, bacon, salami, chorizo, sausage, etc.). `exclude_exceptions` whitelists phrases like "chicken sausage", and `exclude_exempt_names` exempts items named plant-based or vegan.
+- `keyword_weights`, `vegetarian_protein_penalty` and `vegetarian_meal_penalty`: prefer chicken (and other meat or fish) over veggie proteins. A dish counts as a veggie protein when it has 12g+ protein and none of `meat_keywords` appear in its name or ingredients.
+
+## Wellness Bar Protein Smoothies
+
+Protein smoothies come from the Wellness station on the Mission Bay 3 cafe page (`wellness_url_template`), cached in `data/menus/wellness/YYYY-MM-DD.json`. When a wellness-bar protein smoothie is on the menu, it replaces the Evolve shakes; Evolve is only used on days the smoothie isn't available. `planning.max_protein_drinks_per_day` caps how many the protein top-up adds.
+
 ## Micronutrients
 
 `config/micronutrients.json` defines daily targets for calcium, iron, magnesium, potassium, zinc, selenium, folate, choline, vitamins A/C/D/E/K, and B vitamins.

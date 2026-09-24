@@ -12,7 +12,7 @@
   },
   "planning": {
     "home_fallback_allowed": false,
-    "max_evolve_shakes_per_day": 2
+    "max_protein_drinks_per_day": 2
   },
   "titration": {
     "baseline_weeks": 2,
@@ -22,18 +22,67 @@
   },
   "cafeteria": {
     "url_template": "https://uberbayarea.cafebonappetit.com/cafe/uber-cafe/{date}/",
+    "wellness_url_template": "https://uberbayarea.cafebonappetit.com/cafe/mission-bay-3/{date}/",
+    "wellness_station": "Wellness",
     "preferred_keywords": [
       "chicken",
       "salmon",
       "steak",
       "turkey",
       "lean beef",
-      "tofu",
       "rice",
       "quinoa",
       "potato",
       "vegetable",
       "greens"
+    ],
+    "keyword_weights": {
+      "chicken": 12,
+      "tofu": -8,
+      "tempeh": -8,
+      "seitan": -8,
+      "plant-based": -8,
+      "plant based": -8,
+      "vegan": -8,
+      "vegetarian": -8,
+      "veggie": -8,
+      "impossible": -8,
+      "beyond": -8,
+      "falafel": -8,
+      "paneer": -8,
+      "soy curls": -8
+    },
+    "vegetarian_protein_penalty": 8,
+    "vegetarian_meal_penalty": 4,
+    "meat_keywords": [
+      "chicken", "turkey", "beef", "steak", "brisket", "lamb", "bison", "duck",
+      "salmon", "cod", "tuna", "fish", "shrimp", "prawn", "halibut", "tilapia",
+      "trout", "snapper", "rockfish", "scallop", "crab", "mahi", "sea bass", "pollock"
+    ],
+    "exclude_patterns": [
+      "\\b(pork|bacon|ham|hams|prosciutto|pancetta|chorizo|soppressata|capicola|coppa|salami|pepperoni|mortadella|'?nduja|guanciale|lardons?|lard|carnitas|al pastor|tocino|char siu|chashu|tonkatsu|sausages?|bratwurst|kielbasa|pork belly|spare ?ribs|baby back)\\b"
+    ],
+    "exclude_exempt_names": [
+      "plant-based",
+      "plant based",
+      "vegan",
+      "soyrizo"
+    ],
+    "exclude_exceptions": [
+      "chicken sausage",
+      "turkey sausage",
+      "beef sausage",
+      "plant-based chorizo",
+      "plant-based sausage",
+      "vegan chorizo",
+      "vegan sausage",
+      "soy chorizo",
+      "soyrizo",
+      "turkey bacon",
+      "turkey ham",
+      "beef bacon",
+      "chicken chorizo",
+      "beef chorizo"
     ],
     "avoid_keywords": [
       "fried",
