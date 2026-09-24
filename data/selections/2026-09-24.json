@@ -1,0 +1,42 @@
+{
+  "summary": "Pull day, so the plate leans on lean turkey and chicken with the wellness-bar protein smoothie pre-workout; cod at lunch adds some variety and omega-3s alongside a chicken add-on for extra protein.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Turkey and an everything bagel with almond butter and Greek yogurt for steady protein and carbs.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 1.5},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Almond Butter", "servings": 1},
+        {"name": "Greek Yogurt", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Herb-roasted cod as the main with a grilled chicken add-on for extra protein, whole grain pasta and multigrain bread for carbs.",
+      "items": [
+        {"name": "Roasted Herb Cod", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar protein smoothie plus banana, low fat and easy to digest before lifting.",
+      "items": [
+        {"name": "Berry Cottage Cheese Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Chicken pizza plus extra chicken breast and whole grain pasta to close out protein and carbs for the day.",
+      "items": [
+        {"name": "Pizza Chicken, Ricotta, Zucchini, Cheddar Cheese", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 2}
+      ]
+    }
+  ]
+}
