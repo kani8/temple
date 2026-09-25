@@ -1,0 +1,46 @@
+{
+  "summary": "Pull day, so protein is front-loaded with turkey, eggs, and two chicken-based plates. Potato Chicken Creole gives lunch some heat and variety, and smoked ling cod swaps in at dinner for an omega-3 boost alongside more chicken and carbs.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Turkey and eggs for a solid protein base, a bagel and yogurt for carbs, raspberries for fiber.",
+      "items": [
+        {"name": "Turkey Breast", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 1},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Potato Chicken Creole as the main with an extra chicken breast, pasta and bread rounding out the carbs.",
+      "items": [
+        {"name": "Potato Chicken Creole", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar protein smoothie plus banana, low fat and easy to digest before lifting.",
+      "items": [
+        {"name": "Berry Cottage Cheese Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Smoked ling cod for variety plus extra chicken breast, pasta, sweet potato, bread and black beans to close out protein, carbs and fiber for the day.",
+      "items": [
+        {"name": "Smoked Ling Cod", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Sweet Potato", "servings": 2},
+        {"name": "Panorama Sourdough Bread", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
