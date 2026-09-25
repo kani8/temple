@@ -131,6 +131,7 @@ def build_training_plan(training: dict[str, Any], profile: dict[str, Any], today
     week = floor(day / 7) + 1
     rotation = training["rotation"]
     session_key = rotation[day % len(rotation)]
+    session_key = training.get("session_overrides", {}).get(today.isoformat(), session_key)
     exercise_keys = training["sessions"][session_key]
     exercises: list[ExercisePlan] = []
 
