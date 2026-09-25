@@ -1,5 +1,6 @@
 {
   "rotation": ["push_a", "pull_a", "legs_a", "push_b", "pull_b", "legs_b", "push_c"],
+  "session_overrides": {"2026-09-24": "legs_a", "2026-09-25": "pull_a"},
   "global_rules": {
     "sets_per_exercise": 2,
     "default_rir": "1-2",
