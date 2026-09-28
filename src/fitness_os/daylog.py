@@ -267,3 +267,29 @@ def render_status(status: DayStatus, training_plan: Any, nutrition_config: dict[
     if status.warnings:
         lines += ["", "## Warnings", ""] + [f"- log warning: {warning}" for warning in status.warnings]
     return "\n".join(lines)
+
+
+def recent_log_summary(data_dir: Path, day: date, days: int = 3) -> list[str]:
+    """What the coach logged on the days before `day`, for the nutritionist."""
+    lines: list[str] = []
+    for offset in range(days, 0, -1):
+        prior = date.fromordinal(day.toordinal() - offset)
+        path = log_path(data_dir, prior)
+        if not path.exists():
+            continue
+        log = load_log(path, prior)
+        meals = ", ".join(
+            f"{name}: {entry.get('status', '?')}" + (f" ({entry['note']})" if entry.get("note") else "")
+            for name, entry in log.get("meals", {}).items()
+        ) or "no meals logged"
+        lines.append(f"- {prior.isoformat()} - {meals}")
+        eaten = [
+            f"{entry.get('name')}" + (f" x{entry['servings']:g}" if entry.get("servings", 1) != 1 else "")
+            + f" [{entry.get('meal') or 'Extra'}]"
+            for entry in log.get("eaten", [])
+        ]
+        if eaten:
+            lines.append(f"  - ate instead / extra: {'; '.join(eaten)}")
+        for note in log.get("notes", []):
+            lines.append(f"  - note: {note}")
+    return lines

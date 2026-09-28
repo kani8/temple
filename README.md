@@ -122,7 +122,7 @@ fitness-os status --date 2026-09-28        # plan vs log: eaten, remaining, proj
 fitness-os status --date 2026-09-28 --json
 ```
 
-`status` shows what's been eaten against targets, what's left, and what the day lands at if the pending meals are eaten as planned, which is what the coach uses to re-plan the rest of the day after a miss. The nutritionist reads the last few logs when choosing the next day's meals, so meals that keep getting skipped or swapped get replaced.
+`status` shows what's been eaten against targets, what's left, and what the day lands at if the pending meals are eaten as planned, which is what the coach uses to re-plan the rest of the day after a miss. `fitness-os candidates` (which the nutritionist reads every morning) summarises the last three logs, so meals that keep getting skipped or swapped get replaced.
 
 ## Weekly Check-In Routine
 

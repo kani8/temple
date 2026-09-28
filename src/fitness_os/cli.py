@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .config import DATA_DIR, ensure_data_dirs, load_micronutrients, load_nutrition, load_profile, load_training
 from .checkin import calorie_adjustment, load_bodyweights
-from .daylog import day_status, load_log, log_path, render_status
+from .daylog import day_status, load_log, log_path, recent_log_summary, render_status
 from .digest import build_html, build_text, fetch_prepu
 from .emailer import preview_html, send_email
 from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, parse_wellness_items, save_menu_file
@@ -231,6 +231,15 @@ def cmd_candidates(args: argparse.Namespace) -> int:
         print(f"  {name}: " + ", ".join(f"{k} {v}" for k, v in meal.items()))
     excluded = [item for item in menu if item.has_macros() and is_excluded(item, nutrition)]
     print(f"Excluded as pork: {len(excluded)} items")
+    recent = recent_log_summary(DATA_DIR, today)
+    if recent:
+        print()
+        print("## What actually happened recently (daily coach logs)")
+        print("Adapt to this: stop picking items he keeps swapping out, make often-skipped meals quicker to grab")
+        print("or move their protein elsewhere, and favor items he chose himself when they fit the targets.")
+        print("Mention any such adjustment in the summary.")
+        for line in recent:
+            print(line)
     print()
     print("| Item | Station | Cal | P | C | F | Fiber | Sodium | Serving | Ingredients |")
     print("|---|---|---:|---:|---:|---:|---:|---:|---|---|")
