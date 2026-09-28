@@ -111,6 +111,19 @@ A Claude cloud routine ("Temple nutritionist") runs on weekday mornings before t
 
 To make menus available early, each workflow run also caches the next three weekdays' menus with `fitness-os prefetch`.
 
+## Daily Coach Routine
+
+A second Claude routine ("Temple coach") starts a fresh session every day at 6:15am Pacific, right after the email. Open it in the Claude app and talk to it through the day: "what's next?", "had breakfast", "skipped lunch, grabbed a protein bar", "row felt easy at 130". It keeps no memory between days; its whole state is the day's plan, the nutritionist's selection, and the day log.
+
+The coach records what actually happened in `data/logs/YYYY-MM-DD.json` (format documented in `src/fitness_os/daylog.py`) and commits it to `main` after each update. Menu items are named, not measured, so macros come from the scraped menu; off-menu food is logged with estimated macros and flagged as an estimate.
+
+```bash
+fitness-os status --date 2026-09-28        # plan vs log: eaten, remaining, projected, lifts, cardio
+fitness-os status --date 2026-09-28 --json
+```
+
+`status` shows what's been eaten against targets, what's left, and what the day lands at if the pending meals are eaten as planned, which is what the coach uses to re-plan the rest of the day after a miss. The nutritionist reads the last few logs when choosing the next day's meals, so meals that keep getting skipped or swapped get replaced.
+
 ## Weekly Check-In Routine
 
 Reply to any morning email with your bodyweight and lifts that felt too easy or too hard. A weekly Claude routine reads those replies, updates `data/logs/bodyweight.csv`, adjusts `baseline_lb` for the lifts you mentioned, applies the `fitness-os weekly` calorie recommendation, commits the changes, and emails a summary.

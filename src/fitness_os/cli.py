@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .config import DATA_DIR, ensure_data_dirs, load_micronutrients, load_nutrition, load_profile, load_training
 from .checkin import calorie_adjustment, load_bodyweights
+from .daylog import day_status, load_log, log_path, render_status
 from .digest import build_html, build_text, fetch_prepu
 from .emailer import preview_html, send_email
 from .menu import FoodItem, fetch_menu_html, load_menu_file, parse_menu, parse_wellness_items, save_menu_file
@@ -119,6 +120,15 @@ def load_day_menu(today: date, nutrition: dict, menu_file: Path | None = None, n
     return menu
 
 
+def plan_meals(today: date, nutrition: dict, menu: list[FoodItem], use_selection: bool = True):
+    """The nutritionist's selection when there is one, otherwise the planner's own pick."""
+    selection = load_selection(selection_path(DATA_DIR, today), menu, nutrition) if use_selection else None
+    if selection:
+        return selection.meals, selection_totals(selection), selection
+    meals, daily_totals = build_meal_plan(nutrition, menu)
+    return meals, daily_totals, None
+
+
 def cmd_daily(args: argparse.Namespace) -> int:
     ensure_data_dirs()
     today = parse_date(args.date)
@@ -133,11 +143,7 @@ def cmd_daily(args: argparse.Namespace) -> int:
     menu = load_day_menu(today, nutrition, args.menu_file, args.no_fetch_menu)
 
     training_plan = build_training_plan(training, profile, today)
-    selection = None if args.no_selection else load_selection(selection_path(DATA_DIR, today), menu, nutrition)
-    if selection:
-        meals, daily_totals = selection.meals, selection_totals(selection)
-    else:
-        meals, daily_totals = build_meal_plan(nutrition, menu)
+    meals, daily_totals, selection = plan_meals(today, nutrition, menu, not args.no_selection)
     planned_items = [item for meal in meals for item in meal.items]
     micronutrient_report = estimate_day(planned_items, micronutrients)
     markdown = render_plan(
@@ -240,6 +246,43 @@ def cmd_candidates(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_status(args: argparse.Namespace) -> int:
+    """Today's plan against what the day log says actually happened."""
+    ensure_data_dirs()
+    today = parse_date(args.date)
+    nutrition = load_nutrition()
+    training_plan = build_training_plan(load_training(), load_profile(), today)
+    # The cafeteria is closed at weekends, so don't wait on a fetch that can't succeed.
+    menu = load_day_menu(today, nutrition, no_fetch=today.weekday() >= 5)
+    meals, _, _ = plan_meals(today, nutrition, menu)
+    log = load_log(log_path(DATA_DIR, today), today)
+    status = day_status(today, log, meals, menu, nutrition)
+    for warning in status.warnings:
+        print(f"log warning: {warning}", file=sys.stderr)
+    if args.json:
+        print(json.dumps({
+            "date": today.isoformat(),
+            "training_session": training_plan.session_name,
+            "meals": [
+                {
+                    "name": row["name"],
+                    "status": row["status"],
+                    "planned": [item.name for item in row["planned"]],
+                    "counted": [item.name for item in row["counted"]],
+                }
+                for row in status.meals
+            ],
+            "extras": [item.name for item in status.extras],
+            "eaten_totals": status.eaten_totals,
+            "remaining": status.remaining,
+            "projected_totals": status.projected_totals,
+            "warnings": status.warnings,
+        }, indent=2))
+    else:
+        print(render_status(status, training_plan, nutrition))
+    return 0
+
+
 def cmd_prefetch(args: argparse.Namespace) -> int:
     """Cache upcoming weekday menus so the nutritionist can plan before the morning run."""
     ensure_data_dirs()
@@ -289,6 +332,11 @@ def build_parser() -> argparse.ArgumentParser:
     candidates = sub.add_parser("candidates", help="Print the day's usable menu items and targets.")
     candidates.add_argument("--date", help="Date in YYYY-MM-DD. Defaults to today.")
     candidates.set_defaults(func=cmd_candidates)
+
+    status = sub.add_parser("status", help="Compare today's plan with the day log in data/logs.")
+    status.add_argument("--date", help="Date in YYYY-MM-DD. Defaults to today.")
+    status.add_argument("--json", action="store_true", help="Print machine-readable output.")
+    status.set_defaults(func=cmd_status)
 
     prefetch = sub.add_parser("prefetch", help="Cache weekday menus for today and the next N days.")
     prefetch.add_argument("--date", help="Start date in YYYY-MM-DD. Defaults to today.")
