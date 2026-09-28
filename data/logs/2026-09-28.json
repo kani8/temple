@@ -1,9 +1,12 @@
 {
   "date": "2026-09-28",
   "meals": {
-    "Uber Breakfast": {"status": "custom", "time": "08:00", "note": "Missed cafeteria breakfast, had a Premier Protein chocolate shake instead"}
+    "Uber Breakfast": {"status": "custom", "time": "08:00", "note": "Missed cafeteria breakfast, had a Premier Protein chocolate shake instead"},
+    "Uber HQ Lunch": {"status": "custom", "time": "12:30", "note": "Grabbed Coconut Braised Chicken and Citrus Roasted Chicken instead of planned lunch"}
   },
   "eaten": [
-    {"meal": "Uber Breakfast", "name": "Premier Protein Chocolate Shake", "calories": 160, "protein_g": 30, "carbs_g": 4, "fat_g": 3, "fiber_g": 1, "estimate": true}
+    {"meal": "Uber Breakfast", "name": "Premier Protein Chocolate Shake", "calories": 160, "protein_g": 30, "carbs_g": 4, "fat_g": 3, "fiber_g": 1, "estimate": true},
+    {"meal": "Uber HQ Lunch", "name": "Mary's Free Range Lemongrass, Coconut Braised Chicken", "servings": 1},
+    {"meal": "Uber HQ Lunch", "name": "Citrus Roasted Chicken", "servings": 1}
   ]
 }
