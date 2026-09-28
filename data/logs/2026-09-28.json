@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-28",
+  "meals": {
+    "Uber Breakfast": {"status": "custom", "time": "08:00", "note": "Missed cafeteria breakfast, had a Premier Protein chocolate shake instead"}
+  },
+  "eaten": [
+    {"meal": "Uber Breakfast", "name": "Premier Protein Chocolate Shake", "calories": 160, "protein_g": 30, "carbs_g": 4, "fat_g": 3, "fiber_g": 1, "estimate": true}
+  ]
+}
