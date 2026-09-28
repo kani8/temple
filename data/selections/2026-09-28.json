@@ -1,0 +1,44 @@
+{
+  "summary": "Leg day, so dinner leans into extra carbs with Mary's coconut-braised chicken plus pasta, and lunch stays chicken-forward with Lemon Oregano Roasted Chicken and an added chicken breast. The wellness-bar Ginger Mango Protein Smoothie (today's protein smoothie) fuels a low-fat pre-workout with pita for carbs.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Turkey and a poppy seed bagel with almond butter and Greek yogurt for protein and carbs, raspberries for fiber.",
+      "items": [
+        {"name": "Turkey Breast", "servings": 1},
+        {"name": "Bageletto Poppy Seed Bagel", "servings": 1},
+        {"name": "Almond Butter", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 1},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Lemon Oregano Roasted Chicken as the main with an extra chicken breast for protein, multigrain bread and whole grain pasta for carbs and fiber.",
+      "items": [
+        {"name": "Lemon Oregano Roasted Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Today's wellness-bar protein smoothie plus a whole-wheat pita for low-fat carbs and protein before lifting.",
+      "items": [
+        {"name": "Ginger Mango Protein Smoothie", "servings": 1},
+        {"name": "Whole-wheat Pita", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Coconut-braised chicken for a big protein-and-carb main on leg day, extra chicken breast, pasta and black beans to close out protein, carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free Range Lemongrass, Coconut Braised Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
