@@ -9,7 +9,7 @@
     "Uber HQ Lunch": {
       "status": "custom",
       "time": "13:35",
-      "note": "Lemongrass chicken was gone; ate Achiote thigh bowl, pasta+diced chicken+eggs, pizza slice (portions estimated from photo)"
+      "note": "Lemongrass chicken was gone; ate 1.5 achiote thighs, pasta + diced chicken + 2 eggs, pizza slice (portions estimated from photo)"
     }
   },
   "eaten": [
@@ -35,13 +35,19 @@
     },
     {
       "meal": "Uber HQ Lunch",
-      "name": "Hard-boiled Egg",
-      "servings": 3
+      "name": "Pizza Margherita",
+      "servings": 1
     },
     {
       "meal": "Uber HQ Lunch",
-      "name": "Pizza Margherita",
-      "servings": 1
+      "name": "Hard Boiled Cage Free Egg",
+      "servings": 2
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Achiote Miso Grilled Chicken Thigh",
+      "servings": 0.5,
+      "note": "second thigh, chicken only, no sides"
     }
   ]
 }
