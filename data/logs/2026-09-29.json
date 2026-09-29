@@ -1,9 +1,47 @@
 {
   "date": "2026-09-29",
   "meals": {
-    "Uber Breakfast": {"status": "custom", "time": "09:20", "note": "Skipped planned breakfast; had the Ginger Mango Protein Smoothie at the office"}
+    "Uber Breakfast": {
+      "status": "custom",
+      "time": "09:20",
+      "note": "Skipped planned breakfast; had the Ginger Mango Protein Smoothie at the office"
+    },
+    "Uber HQ Lunch": {
+      "status": "custom",
+      "time": "13:35",
+      "note": "Lemongrass chicken was gone; ate Achiote thigh bowl, pasta+diced chicken+eggs, pizza slice (portions estimated from photo)"
+    }
   },
   "eaten": [
-    {"meal": "Uber Breakfast", "name": "Ginger Mango Protein Smoothie", "servings": 1}
+    {
+      "meal": "Uber Breakfast",
+      "name": "Ginger Mango Protein Smoothie",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Achiote Miso Grilled Chicken Thigh",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Herb Marinated Chicken Breast",
+      "servings": 3
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Whole Grain Pasta",
+      "servings": 1.5
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Hard-boiled Egg",
+      "servings": 3
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Pizza Margherita",
+      "servings": 1
+    }
   ]
 }
