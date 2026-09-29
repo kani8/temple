@@ -1,0 +1,42 @@
+{
+  "summary": "Push day. Breakfast is trimmed to three grab-and-go items (pre-sliced turkey, a bagel, berries) since he's skipped it the last couple of days for a shake instead - hopefully quicker to grab. Lunch centers on the Lemongrass Coconut Braised Chicken, the dish he actually grabbed himself yesterday, this time slotted where it fits best. Dinner switches to Achiote Miso Chicken Thigh for variety after two straight days of cod/coconut chicken at dinner.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Kept to zero-prep grab items (deli turkey, a bagel, berries) so it's fast enough to actually grab on the way in.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 2},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Blueberries", "servings": 3},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Lemongrass Coconut Braised Chicken as the main (the one he chose himself yesterday), extra chicken breast and whole grain pasta for protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Lemongrass, Coconut Braised Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Today's wellness-bar protein smoothie plus banana for quick, low-fat carbs before lifting.",
+      "items": [
+        {"name": "Ginger Mango Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Achiote Miso Chicken Thigh for variety, extra chicken breast, pasta and black beans to close out protein, carbs and fiber.",
+      "items": [
+        {"name": "Achiote Miso Grilled Chicken Thigh", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
