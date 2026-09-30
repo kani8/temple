@@ -1,0 +1,47 @@
+{
+  "summary": "Push day. Breakfast leans into the Ginger Mango Protein Smoothie he's grabbed for himself the last two mornings instead of fighting it, paired with quick turkey/bagel/berries so it's still fast to grab. Lunch brings in Mary's Soy Sauce Roasted Chicken for variety after three straight days of the same chicken mains, and dinner uses the Garlic Chile Cumin Roasted Chicken thigh for a heartier post-workout plate.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Today's wellness-bar protein smoothie (what he's actually been choosing) plus grab-and-go turkey, a bagel, and berries.",
+      "items": [
+        {"name": "Ginger Mango Protein Smoothie", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Bageletto Sesame Seed Bagel", "servings": 1},
+        {"name": "Blueberries", "servings": 1},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Mary's Soy Sauce Roasted Chicken as the main for variety, extra chicken breast, pasta and black beans for protein, carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free Range Soy Sauce Roasted Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1.5},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein: half a bagel, banana and raspberries for carbs/fiber, Greek yogurt for protein without the fat.",
+      "items": [
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Banana", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Garlic Chile Cumin Roasted Chicken thigh as the protein-and-fat-forward main, extra chicken breast, pasta, black beans and sweet potato to round out carbs and fiber.",
+      "items": [
+        {"name": "Garlic, Chile, Cumin Roasted Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Sweet Potato", "servings": 2}
+      ]
+    }
+  ]
+}
