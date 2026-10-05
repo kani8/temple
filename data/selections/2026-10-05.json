@@ -1,0 +1,44 @@
+{
+  "summary": "Legs B day, so dinner and lunch lean into extra carbs (pasta, black beans) alongside the chicken mains. Pre-workout uses the wellness-bar Banana Chai Protein Smoothie with banana for easy carbs.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Quick turkey/bagel grab with extra Greek yogurt for protein.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Blueberries", "servings": 1},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Lebanese-spiced roasted chicken for variety, with extra chicken breast, pasta and black beans for carbs.",
+      "items": [
+        {"name": "Roasted Chicken, Lebanese Spices, Almond Mandi Style Potato", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1.5},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting, using today's wellness-bar protein smoothie.",
+      "items": [
+        {"name": "Banana Chai Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Pineapple garlic glazed chicken plus extra chicken breast, pasta and black beans for leg-day carbs.",
+      "items": [
+        {"name": "Pineapple Garlic Glazed Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
