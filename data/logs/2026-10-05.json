@@ -1,12 +1,41 @@
 {
   "date": "2026-10-05",
   "meals": {
-    "Uber Breakfast": {"status": "skipped", "note": "Skipped; ate eggs with lunch"},
-    "Uber HQ Lunch": {"status": "custom", "time": "13:20", "note": "Eggs, pineapple chicken, 1.5 chicken breast"}
+    "Uber Breakfast": {
+      "status": "skipped",
+      "note": "Skipped; ate eggs with lunch"
+    },
+    "Uber HQ Lunch": {
+      "status": "custom",
+      "time": "13:20",
+      "note": "3 eggs, pineapple chicken, ~6oz herb chicken, cookie (est)"
+    }
   },
   "eaten": [
-    {"meal": "Uber HQ Lunch", "name": "Hard Boiled Cage Free Egg", "servings": 2},
-    {"meal": "Uber HQ Lunch", "name": "Pineapple Garlic Glazed Chicken", "servings": 1},
-    {"meal": "Uber HQ Lunch", "name": "Herb Marinated Chicken Breast", "servings": 1.5}
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Hard Boiled Cage Free Egg",
+      "servings": 3
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Pineapple Garlic Glazed Chicken",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Herb Marinated Chicken Breast",
+      "servings": 3
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Cookie (cafeteria, large)",
+      "calories": 280,
+      "protein_g": 3,
+      "carbs_g": 37,
+      "fat_g": 13,
+      "fiber_g": 1,
+      "estimate": true
+    }
   ]
 }
