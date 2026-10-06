@@ -1,0 +1,44 @@
+{
+  "summary": "Push C day. He's skipped breakfast repeatedly, so today it's pure grab-and-go (shake, bagel, cold turkey, berries) with no eggs required. No wellness-bar protein smoothie on today's menu, so an Evolve shake fills in. Lunch stays with a chicken main but swaps in the Soft Tofu Stew for variety; dinner switches to Bread Crusted Ling Cod (fish) for a change after several straight days of chicken-only mains, chosen for its high protein and fiber.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Zero-prep grab items only (shake, bagel, pre-sliced turkey, berries) since he's been skipping breakfast and eating eggs at lunch instead - no protein smoothie listed today, so Evolve shake covers it.",
+      "items": [
+        {"name": "Evolve protein shake, creamy vanilla", "servings": 1},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Blueberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Mary's Free Range Chicken, Soft Tofu Stew as the main, extra chicken breast, black beans and pasta to round out protein, carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free Range Chicken, Soft Tofu Stew", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 0.5},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 0.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: half a bagel, banana and Greek yogurt.",
+      "items": [
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Banana", "servings": 2},
+        {"name": "Fat-free Greek Yogurt", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Bread Crusted Ling Cod for variety (high protein and fiber), with black beans, a touch of chicken breast and quinoa to close out protein and carbs.",
+      "items": [
+        {"name": "Bread Crusted Ling Cod", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 0.5},
+        {"name": "Quinoa", "servings": 2}
+      ]
+    }
+  ]
+}
