@@ -1,0 +1,42 @@
+{
+  "summary": "Push A day. Breakfast stays pure grab-and-go (turkey, bagel, two hard-boiled eggs, blueberries) since he's been skipping it and favors eggs when he gets the choice. Lunch brings in Pollo Asado for variety after several days of saucy roasted-chicken mains. Today's wellness-bar protein smoothie (Banana Chai) covers pre-workout; dinner's Shoyu chicken plus extra chicken breast closes out protein for the day.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Zero-prep grab items (turkey, bagel, two hard-boiled eggs, blueberries) since breakfast keeps getting skipped - no cooking or assembly needed.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 1.5},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Blueberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Pollo Asado as the main for variety, black beans and extra pasta to round out carbs and fiber.",
+      "items": [
+        {"name": "Pollo Asado", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: today's wellness-bar protein smoothie plus banana for easy carbs.",
+      "items": [
+        {"name": "Banana Chai Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Mary's Shoyu Chicken as the protein-forward main for variety, extra chicken breast, black beans and pasta to close out protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Shoyu Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 0.5}
+      ]
+    }
+  ]
+}
