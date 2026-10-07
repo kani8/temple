@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-07",
+  "meals": {
+    "Uber Breakfast": {"status": "custom", "time": "08:00", "note": "Only had the wellness-bar protein smoothie"}
+  },
+  "eaten": [
+    {"meal": "Uber Breakfast", "name": "Banana Chai Protein Smoothie", "servings": 1}
+  ]
+}
