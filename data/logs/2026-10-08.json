@@ -1,9 +1,42 @@
 {
   "date": "2026-10-08",
   "meals": {
-    "Uber Breakfast": {"status": "custom", "time": "09:00", "note": "Smoothie only"}
+    "Uber Breakfast": {
+      "status": "custom",
+      "time": "09:00",
+      "note": "Smoothie only"
+    },
+    "Uber HQ Lunch": {
+      "status": "custom",
+      "time": "13:33",
+      "note": "2 creamy chicken pasta, lemongrass chicken, 2 eggs, ~20 chicken cubes (est ~6 servings from photo)"
+    }
   },
   "eaten": [
-    {"meal": "Uber Breakfast", "name": "Banana Chai Protein Smoothie", "servings": 1}
+    {
+      "meal": "Uber Breakfast",
+      "name": "Banana Chai Protein Smoothie",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Creamy Chicken Pasta, Watercress, Mushroom, Sweet Pepper",
+      "servings": 2
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Mary's Free Range Soy Lemongrass Chicken, Roasted Peanuts",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Hard Boiled Cage Free Egg",
+      "servings": 2
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Herb Marinated Chicken Breast",
+      "servings": 6
+    }
   ]
 }
