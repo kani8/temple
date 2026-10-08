@@ -9,7 +9,7 @@
     "Uber HQ Lunch": {
       "status": "custom",
       "time": "13:33",
-      "note": "2 creamy chicken pasta, lemongrass chicken, 2 eggs, ~20 chicken cubes (est ~6 servings from photo)"
+      "note": "1 creamy chicken pasta, 2 eggs, ~20 chicken cubes (est ~6 servings from photo); other pasta + lemongrass saved for dinner (assumed split)"
     }
   },
   "eaten": [
@@ -21,11 +21,6 @@
     {
       "meal": "Uber HQ Lunch",
       "name": "Creamy Chicken Pasta, Watercress, Mushroom, Sweet Pepper",
-      "servings": 2
-    },
-    {
-      "meal": "Uber HQ Lunch",
-      "name": "Mary's Free Range Soy Lemongrass Chicken, Roasted Peanuts",
       "servings": 1
     },
     {
