@@ -1,0 +1,43 @@
+{
+  "summary": "Pull A day. Breakfast is pure grab-and-go (today's wellness-bar Banana Chai Protein Smoothie, bagel, a hard-boiled egg, berries) since he keeps skipping it or swapping in just the smoothie - this honors that pattern while still hitting protein. Lunch brings in Creamy Chicken Pasta for variety. Dinner switches to Mary's Soy Lemongrass Chicken (new dish) since Shoyu Chicken was just last night's dinner.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Zero-prep grab items (wellness-bar protein smoothie, bagel, one pre-boiled egg, berries) since breakfast keeps getting skipped or replaced with just the smoothie.",
+      "items": [
+        {"name": "Banana Chai Protein Smoothie", "servings": 1},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 1},
+        {"name": "Blueberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Creamy Chicken Pasta as the main for variety, extra chicken breast, black beans and pasta to round out protein and carbs.",
+      "items": [
+        {"name": "Creamy Chicken Pasta, Watercress, Mushroom, Sweet Pepper", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Black Beans", "servings": 0.5},
+        {"name": "Whole Grain Pasta", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: turkey breast, half a bagel and banana.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Mary's Soy Lemongrass Chicken as the protein-forward main for variety after Shoyu Chicken last night, extra chicken breast and pasta to close out protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Soy Lemongrass Chicken, Roasted Peanuts", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    }
+  ]
+}
