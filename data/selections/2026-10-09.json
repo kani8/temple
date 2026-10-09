@@ -1,0 +1,43 @@
+{
+  "summary": "Legs A day, so extra carbs via pasta at lunch and dinner. Today's wellness-bar protein smoothie is Banana Chai (same one he actually drank the last two mornings), so that covers breakfast with one grab-and-peel egg added - no other breakfast items since everything else has gone untouched for two days running. Lunch brings in Chicken Makhani for variety after Soft Tofu Stew, Pollo Asado and Creamy Chicken Pasta on recent days; dinner is a simple turkey/chicken-and-pasta plate since today's menu has no dedicated dinner entree beyond the high-fat salmon.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Minimal grab-and-go (today's wellness-bar Banana Chai Protein Smoothie + one pre-boiled egg) since he's only been drinking the smoothie and skipping everything else for two days running.",
+      "items": [
+        {"name": "Banana Chai Protein Smoothie", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken Makhani as the main for variety, extra chicken breast, black beans and pasta for protein, fiber and carbs.",
+      "items": [
+        {"name": "Chicken Makhani", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: turkey breast, half a bagel's worth of carbs, banana and flatbread.",
+      "items": [
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Lavash Flatbread", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Leg day calls for extra carbs: turkey breast and chicken breast for protein, a bigger pasta portion plus black beans for carbs and fiber.",
+      "items": [
+        {"name": "Turkey Breast", "servings": 2},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 2.5},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
