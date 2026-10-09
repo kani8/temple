@@ -62,5 +62,19 @@
       "fiber_g": 1,
       "estimate": true
     }
+  ],
+  "lifts": [
+    {
+      "exercise": "Leg extension, top-half ROM",
+      "load": "217.5 lb",
+      "reps": [
+        7,
+        6
+      ],
+      "note": "Built up to this; far above prescribed 95 lb x 14. Confirm units/stack."
+    }
+  ],
+  "notes": [
+    "Reported 225 lb x1 on an unnamed lift (confirm which). Knee hurt to bend early in session (acute pain), resolved after leg extension warm-up build. Other prescribed lifts not reported yet. Ate only one lunch plate before training; no breakfast."
   ]
 }
