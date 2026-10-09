@@ -9,6 +9,10 @@
     "Uber Breakfast": {
       "status": "skipped",
       "note": "Nothing before lunch"
+    },
+    "Uber Pre-workout": {
+      "status": "skipped",
+      "note": "Lifted fasted; lunch plate was post-workout"
     }
   },
   "eaten": [
@@ -84,6 +88,6 @@
     }
   ],
   "notes": [
-    "Knee hurt to bend at session start, eased after leg extension ramp. Lifts far above prescription (ext 217.5 vs 95; 225 barbell squat single vs Smith 150). Other prescribed lifts not reported. No breakfast; one lunch plate before training."
+    "Lifted fasted (nothing eaten before training; lunch plate was post-workout). Knee hurt to bend at session start, eased after leg extension ramp. Lifts far above prescription (ext 217.5 vs 95; 225 barbell squat single vs Smith 150). Other prescribed lifts not reported."
   ]
 }
