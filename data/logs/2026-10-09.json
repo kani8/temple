@@ -1,15 +1,66 @@
 {
   "date": "2026-10-09",
   "meals": {
-    "Uber HQ Lunch": {"status": "custom", "time": "13:40", "note": "Photo plate: salmon, cheese pizza, chips, chicken + egg, pasta salad, dessert"}
+    "Uber HQ Lunch": {
+      "status": "custom",
+      "time": "13:40",
+      "note": "Photo plate: salmon, cheese pizza, chips, chicken + egg, pasta salad, dessert"
+    },
+    "Uber Breakfast": {
+      "status": "skipped",
+      "note": "Nothing before lunch"
+    }
   },
   "eaten": [
-    {"meal": "Uber HQ Lunch", "name": "Salmon, 2 pieces (~6oz)", "calories": 350, "protein_g": 36, "carbs_g": 0, "fat_g": 22, "fiber_g": 0, "estimate": true},
-    {"meal": "Uber HQ Lunch", "name": "Napoli Inspired Margherita Pizza", "servings": 1.5},
-    {"meal": "Uber HQ Lunch", "name": "Corn Tortilla Chips", "servings": 2},
-    {"meal": "Uber HQ Lunch", "name": "Herb Marinated Chicken Breast", "servings": 4},
-    {"meal": "Uber HQ Lunch", "name": "Hard Boiled Cage Free Egg", "servings": 1},
-    {"meal": "Uber HQ Lunch", "name": "Pasta salad with spinach", "calories": 150, "protein_g": 5, "carbs_g": 22, "fat_g": 5, "fiber_g": 3, "estimate": true},
-    {"meal": "Uber HQ Lunch", "name": "Dessert cup (mango topped)", "calories": 220, "protein_g": 3, "carbs_g": 28, "fat_g": 11, "fiber_g": 1, "estimate": true}
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Salmon, 2 pieces (~6oz)",
+      "calories": 350,
+      "protein_g": 36,
+      "carbs_g": 0,
+      "fat_g": 22,
+      "fiber_g": 0,
+      "estimate": true
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Napoli Inspired Margherita Pizza",
+      "servings": 1.5
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Corn Tortilla Chips",
+      "servings": 2
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Herb Marinated Chicken Breast",
+      "servings": 4
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Hard Boiled Cage Free Egg",
+      "servings": 1
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Pasta salad with spinach",
+      "calories": 150,
+      "protein_g": 5,
+      "carbs_g": 22,
+      "fat_g": 5,
+      "fiber_g": 3,
+      "estimate": true
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Dessert cup (mango topped)",
+      "calories": 220,
+      "protein_g": 3,
+      "carbs_g": 28,
+      "fat_g": 11,
+      "fiber_g": 1,
+      "estimate": true
+    }
   ]
 }
