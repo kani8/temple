@@ -66,15 +66,24 @@
   "lifts": [
     {
       "exercise": "Leg extension, top-half ROM",
-      "load": "217.5 lb",
+      "load": "160 lb then 217.5 lb",
       "reps": [
+        9,
         7,
         6
       ],
-      "note": "Built up to this; far above prescribed 95 lb x 14. Confirm units/stack."
+      "note": "Opened at 160 x8-10, ramped to 217.5 x7 and x6; prescribed 95 lb x12-15. Knee pain resolved during this."
+    },
+    {
+      "exercise": "Barbell back squat (off plan, plan is Smith squat 150)",
+      "load": "225 lb",
+      "reps": [
+        1
+      ],
+      "note": "Single, off-plan max attempt"
     }
   ],
   "notes": [
-    "Reported 225 lb x1 on an unnamed lift (confirm which). Knee hurt to bend early in session (acute pain), resolved after leg extension warm-up build. Other prescribed lifts not reported yet. Ate only one lunch plate before training; no breakfast."
+    "Knee hurt to bend at session start, eased after leg extension ramp. Lifts far above prescription (ext 217.5 vs 95; 225 barbell squat single vs Smith 150). Other prescribed lifts not reported. No breakfast; one lunch plate before training."
   ]
 }
