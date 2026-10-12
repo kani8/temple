@@ -1,0 +1,43 @@
+{
+  "summary": "Legs B day. Breakfast and pre-workout stay pure grab-and-go (smoothie, pre-boiled egg, yogurt, almonds for breakfast; bagel, turkey, banana for pre-workout) since he's been skipping both and lifting fasted - no prep needed anywhere. Lunch leans into the chicken-breast-and-egg-and-pasta combo he built himself on his last custom plate. Dinner uses Marys Korean Style Spicy Chicken for variety and extra carbs on this leg day, topped up with turkey and black beans for protein and fiber.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Zero-prep grab items since breakfast keeps getting skipped before lifting - smoothie, pre-boiled egg, yogurt cup and almonds, nothing requiring assembly.",
+      "items": [
+        {"name": "Apple Overnight Oat Protein Smoothie", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Almonds", "station": "@L6 Breakfast Bar", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken breast, egg and whole grain pasta mirrors the plate he built himself last time (chicken + egg + pasta salad), with black beans added for fiber.",
+      "items": [
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 2.5},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Hard-boiled Egg", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat, quick-grab carbs and protein in case he eats before lifting: bagel, turkey, banana - no utensils needed.",
+      "items": [
+        {"name": "Bageletto Plain Bagel", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Banana", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Marys Korean Style Spicy Chicken as the main for variety and leg-day carbs, extra turkey and black beans to round out protein and fiber.",
+      "items": [
+        {"name": "Marys Free Range Korean Style Spicy Chicken", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
