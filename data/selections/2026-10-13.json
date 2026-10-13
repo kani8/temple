@@ -1,0 +1,43 @@
+{
+  "summary": "Push C day. Breakfast and pre-workout are grab-and-go (overnight oat protein smoothie, egg, turkey, bagel) since nothing needs prep. Lunch is a lean turkey-and-pasta plate with sweet potato and black beans for carbs/fiber. Dinner brings in Mary's Sticky Oyster Sauce Chicken for variety after yesterday's Korean Spicy Chicken, topped up with extra chicken breast and black beans for protein and fiber.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Protein smoothie plus egg, turkey and toast - zero prep, solid protein base before lifting.",
+      "items": [
+        {"name": "Apple Overnight Oat Protein Smoothie", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Turkey breast with whole grain pasta, sweet potato and black beans for a lean, carb-forward plate.",
+      "items": [
+        {"name": "Turkey Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 2},
+        {"name": "Sweet Potato", "servings": 2},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: bagel, turkey breast, raspberries.",
+      "items": [
+        {"name": "Bageletto Plain Bagel", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Mary's Sticky Oyster Sauce Chicken as the protein-forward main for variety, extra chicken breast and black beans to close out protein, carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free-Range Sticky Oyster Sauce Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
