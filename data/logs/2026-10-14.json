@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-14",
+  "meals": {
+    "Uber HQ Lunch": {
+      "status": "custom",
+      "time": "12:30",
+      "note": "Beef tacos + burgers instead of planned bowl"
+    }
+  },
+  "eaten": [
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Beef tacos (x4)",
+      "calories": 760,
+      "protein_g": 44,
+      "carbs_g": 56,
+      "fat_g": 38,
+      "fiber_g": 6,
+      "estimate": true
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Burgers (x2, patty+bun)",
+      "calories": 900,
+      "protein_g": 50,
+      "carbs_g": 60,
+      "fat_g": 48,
+      "fiber_g": 4,
+      "estimate": true
+    },
+    {
+      "meal": "Uber HQ Lunch",
+      "name": "Herb Marinated Chicken Breast",
+      "servings": 3
+    }
+  ]
+}
