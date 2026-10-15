@@ -1,0 +1,45 @@
+{
+  "summary": "Pull A day. Breakfast and pre-workout stay quick grab-and-go (protein smoothie, eggs, turkey, bagel) since those haven't needed changes. Lunch brings in Mary's Free-Range Negi Miso Sesame Chicken for variety after the last three days of turkey/chicken-bowl plates, with extra chicken breast, pasta and black beans. Dinner introduces Camarones a la Diabla shrimp as a new protein for variety, backed up with chicken breast, black beans, pasta and avocado to keep it protein-forward.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Protein smoothie plus two eggs, turkey and banana - quick, no-prep, protein-forward before lifting.",
+      "items": [
+        {"name": "Apple Overnight Oat Protein Smoothie", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Negi Miso Sesame Chicken as the main for variety, extra chicken breast, whole grain pasta and black beans to round out protein, carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free-Range Negi Miso Sesame Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: bagel, turkey breast, raspberries.",
+      "items": [
+        {"name": "Bageletto Plain Bagel", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Raspberries", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Camarones a la Diabla shrimp as a new protein for variety, chicken breast, pasta, black beans and avocado to keep it protein-forward and close out carbs and fiber.",
+      "items": [
+        {"name": "Camarones a La Diabla-spicy Shrimp", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Avocado", "servings": 1}
+      ]
+    }
+  ]
+}
