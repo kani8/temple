@@ -1,0 +1,44 @@
+{
+  "summary": "Push C day. Lunch brings in Mary's Jjimdak soy-sesame braised chicken for variety after a run of other chicken mains; dinner pairs chicken pot pie with beef potato soup for a protein mix, backed by extra pasta and chicken breast to close out post-workout protein and carbs.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs, turkey, oats and whole-grain bread for a balanced protein/carb start before lifting.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Jjimdak braised chicken as the main for variety, extra chicken breast and pasta to round out protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Jjimdak, Soy Sesame Braised Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: wellness protein smoothie, half bagel, turkey.",
+      "items": [
+        {"name": "Strawberry, Rhubarb Protein Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Peppered Turkey Breast", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Chicken pot pie and beef potato soup together for a protein-forward, varied main, extra pasta and chicken breast for post-workout protein and carbs.",
+      "items": [
+        {"name": "Chicken Pot Pie, Buttermilk Biscuits", "servings": 1},
+        {"name": "Beef Potato Soup", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 2},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1}
+      ]
+    }
+  ]
+}
