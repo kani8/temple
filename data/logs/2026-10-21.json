@@ -1,1 +1,17 @@
-{"meals": {"Uber Breakfast": {"status": "skipped", "note": "no breakfast today"}}}
+{
+  "date": "2026-10-21",
+  "meals": {
+    "Uber Breakfast": {"status": "skipped", "note": "no breakfast today"},
+    "Uber HQ Lunch": {"status": "custom", "time": "13:30", "note": "Grabbed lunch and dinner together; quesadillas, eggs, chicken"},
+    "Uber Pre-workout": {"status": "custom", "note": "Smoothie only; lifted before lunch"},
+    "Uber Post-workout / Dinner": {"status": "custom", "note": "2 burgers"}
+  },
+  "eaten": [
+    {"meal": "Uber Pre-workout", "name": "Strawberry, Rhubarb Protein Smoothie", "servings": 1},
+    {"meal": "Uber HQ Lunch", "name": "Chicken Cheese Quesadilla", "servings": 2},
+    {"meal": "Uber HQ Lunch", "name": "Hard Boiled Cage Free Egg", "servings": 2},
+    {"meal": "Uber HQ Lunch", "name": "Herb Marinated Chicken Breast", "servings": 4},
+    {"meal": "Uber Post-workout / Dinner", "name": "Cheese Mu-ber Burger, Caramelized Onions", "servings": 2}
+  ],
+  "notes": ["Lifted Push A before eating (details not reported yet); chose a refeed-style day, fat ~125g over target. Back to plan tomorrow."]
+}
