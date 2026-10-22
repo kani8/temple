@@ -1,0 +1,43 @@
+{
+  "summary": "Pull A day. Lunch pairs beer-battered cod with chicken breast and whole grain pasta, a fish/chicken mix after three straight chicken-only lunches; dinner stays chicken-forward with smoked chicken pasta alfredo plus extra chicken breast. Added chia seed at breakfast to help close the fiber gap.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs, turkey, oats, bread and banana for a balanced protein/carb start; chia seed boosts fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Chia Seed", "servings": 1, "station": "@L6 Breakfast Bar"}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Beer-battered cod as the main for fish variety, chicken breast and extra pasta round out protein and carbs.",
+      "items": [
+        {"name": "Beer Battered Baked Ling Cod", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: wellness protein smoothie, half bagel, turkey.",
+      "items": [
+        {"name": "Strawberry, Rhubarb Protein Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Peppered Turkey Breast", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Smoked chicken pasta alfredo as the protein-forward main, extra chicken breast closes out post-workout protein.",
+      "items": [
+        {"name": "Smoked Chicken Pasta Alla Fredo, Watercress", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2}
+      ]
+    }
+  ]
+}
