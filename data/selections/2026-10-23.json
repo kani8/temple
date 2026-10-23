@@ -1,0 +1,45 @@
+{
+  "summary": "Legs A day. Today's cafeteria menu is lighter on hot entrees than usual (no chicken/curry/cod dishes), so lunch leans on extra chicken breast plus pasta and a quinoa salad for carbs and fiber. Dinner swaps in smoked duck lo mein for protein-source variety and leg-day carbs, topped off with more chicken breast and pasta.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs, turkey, oats, bread, banana and chia for a balanced protein/carb start before lifting.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Chia Seed", "servings": 1, "station": "@L6 Breakfast Bar"}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "No hot chicken entree today, so extra chicken breast from the salad bar is the main, backed by pasta, quinoa salad and beans for carbs and fiber.",
+      "items": [
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 1.5},
+        {"name": "Quinoa, Tomato, Cucumber, Olive Salad", "servings": 1},
+        {"name": "Cannellini Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: wellness protein smoothie, half bagel, turkey.",
+      "items": [
+        {"name": "Strawberry, Rhubarb Protein Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Peppered Turkey Breast", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Smoked duck lo mein as the protein-forward main for variety and leg-day carbs, extra chicken breast and pasta to close out post-workout protein and carbs.",
+      "items": [
+        {"name": "Smoked Duck Lo-mein", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 1}
+      ]
+    }
+  ]
+}
