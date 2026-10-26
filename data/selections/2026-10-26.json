@@ -1,0 +1,40 @@
+{
+  "summary": "Legs B day, so extra whole grain pasta at dinner for carbs. Breakfast was skipped recently, so it's simplified to four grab-and-go items (no bowls, toasting or peeling) instead of the usual eggs/oats/bread combo. Chicken carries both lunch (Ras El Hanout roasted chicken) and dinner (Pollo Asado) with fresh preparations for variety; today's wellness-bar protein option is the Chocolate Cookie Protein Smoothie, used pre-workout in place of an Evolve shake.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "All grab-and-go, no prep needed, to make it easier to actually eat after recently skipping it.",
+      "items": [
+        {"name": "Bageletto Everything Bagel", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Banana", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Ras El Hanout roasted chicken as the main with a quinoa-brussels sprouts side for carbs and fiber; a new preparation for variety.",
+      "items": [
+        {"name": "Ras El Hanout Roasted Chicken", "servings": 1},
+        {"name": "Shaved Brussels Sprouts, Quinoa Salad", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: today's wellness protein smoothie plus turkey.",
+      "items": [
+        {"name": "Chocolate Cookie Protein Smoothie", "servings": 1},
+        {"name": "Peppered Turkey Breast", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Pollo asado as the protein-forward main for variety, extra chicken breast and extra pasta for leg-day carbs.",
+      "items": [
+        {"name": "Pollo Asado", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Whole Grain Pasta", "servings": 1.5}
+      ]
+    }
+  ]
+}
