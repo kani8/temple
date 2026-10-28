@@ -1,0 +1,45 @@
+{
+  "summary": "Push A day. Breakfast skips eggs for yogurt, turkey, English muffin and almonds for variety. Smoky Paprika Roasted Chicken carries lunch and Mary's Free Range Shawarma Chicken carries dinner, both new preparations to avoid repeating recent mains; wild rice and black beans round out carbs and fiber across both meals.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Yogurt and turkey for protein, English muffin and banana for carbs, almonds for healthy fat and crunch.",
+      "items": [
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama English Muffin", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Almonds", "servings": 1, "station": "@L6 Breakfast Bar"}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Smoky Paprika Roasted Chicken as the main for variety, wild rice and black beans for carbs and fiber, extra chicken breast to round out protein.",
+      "items": [
+        {"name": "Smoky Paprika Roasted Chicken", "servings": 1},
+        {"name": "Wild Rice", "servings": 3},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Black Beans", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: today's wellness protein smoothie, lean turkey, and berries for fiber without added fat.",
+      "items": [
+        {"name": "Chocolate Cookie Protein Smoothie", "servings": 1},
+        {"name": "Peppered Turkey Breast", "servings": 2},
+        {"name": "Raspberries", "servings": 1},
+        {"name": "Blackberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Shawarma chicken as the protein-forward main for variety, wild rice and black beans close out the day's carbs and fiber.",
+      "items": [
+        {"name": "Mary's Free Range Shawarma Chicken", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
