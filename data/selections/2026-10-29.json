@@ -1,0 +1,45 @@
+{
+  "summary": "Pull A day. Lunch and dinner lean on fresh chicken and shrimp preparations (Halloween-themed dishes today) to avoid repeating yesterday's shawarma chicken; today's wellness-bar option is the Chocolate Cookie Protein Smoothie, used pre-workout in place of an Evolve shake.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Oats, eggs and turkey for protein and slow carbs, bread and banana to round out the carb target.",
+      "items": [
+        {"name": "MWGCI Steel Cut Oats", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "New chicken noodle dish as the main for variety, extra chicken breast and black beans close out protein and fiber.",
+      "items": [
+        {"name": "Haunted Mary's Free Range Chicken, Ants Climbing a Tree, Spicy Monster Mung Bean Noodle", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Black Beans", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: today's wellness protein smoothie, lean turkey, and fruit for fiber without added fat.",
+      "items": [
+        {"name": "Chocolate Cookie Protein Smoothie", "servings": 1},
+        {"name": "Peppered Turkey Breast", "servings": 2},
+        {"name": "Orange", "servings": 1},
+        {"name": "Strawberry", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Shrimp and black rice as the protein-forward main for variety, extra chicken breast, pasta and sweet potato close out protein and carbs.",
+      "items": [
+        {"name": "Spooky Shrimp, Forbidden Black Rice, Roasted Carrots", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2.5},
+        {"name": "Whole Grain Pasta", "servings": 1.5},
+        {"name": "Sweet Potato", "servings": 2}
+      ]
+    }
+  ]
+}
