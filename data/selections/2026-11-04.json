@@ -1,0 +1,44 @@
+{
+  "summary": "Push A day. No wellness-bar protein smoothie on today's menu, so pre-workout leans on an Evolve shake plus a half bagel and banana. Lunch brings in chicken enchiladas and dinner brings in gochujang cod, both new mains for variety after recent soy sauce chicken and salmon days.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Oats, eggs and turkey for protein, sourdough and banana for carbs.",
+      "items": [
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama Sourdough Bread", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken enchiladas as the main for variety, extra chicken breast and wild rice round out protein and carbs.",
+      "items": [
+        {"name": "Chicken Enchiladas, Cotija Cheese, Cilantro, Crema", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 3}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat carbs and protein 60-90 min before lifting: Evolve shake (no wellness smoothie today), half a bagel and a banana.",
+      "items": [
+        {"name": "Evolve protein shake, creamy vanilla", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Banana", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Gochujang cod (new main) for protein-source variety, extra chicken breast, avocado and sweet potato close out protein, fat and carbs.",
+      "items": [
+        {"name": "Spicy Gochujang Sesame Cod", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Avocado", "servings": 1},
+        {"name": "Sweet Potato", "servings": 2}
+      ]
+    }
+  ]
+}
