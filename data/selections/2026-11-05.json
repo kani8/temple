@@ -1,0 +1,45 @@
+{
+  "summary": "Pull day, so emphasis stays on protein with steady carbs around lifting. Lunch builds a lean chicken-and-quinoa bowl with avocado and asiago for healthy fat/calories, and dinner swaps in roasted citrus shrimp for variety alongside more chicken breast and sweet potato.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats and multigrain bread for steady carbs, banana for quick fiber/sugar.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken breast over quinoa and black beans, avocado and asiago add healthy fat and calories.",
+      "items": [
+        {"name": "Herb Marinated Chicken Breast", "servings": 3},
+        {"name": "Quinoa", "servings": 4},
+        {"name": "Black Beans", "servings": 3},
+        {"name": "Avocado", "servings": 1},
+        {"name": "Asiago Cheese", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat protein smoothie plus a plain bagel for easily digestible carbs before lifting.",
+      "items": [
+        {"name": "Kale, Ginger, Apple, Lychee Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Shrimp for protein variety alongside more chicken breast, sweet potato and black beans for post-lift carbs.",
+      "items": [
+        {"name": "Roasted Citrus Shrimp", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Sweet Potato", "servings": 5},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
