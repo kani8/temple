@@ -1,0 +1,45 @@
+{
+  "summary": "Legs B day, so dinner leans on extra rice and sweet potato for post-lift carbs. Lunch centers on the shio koji chicken bowl, and dinner brings in citrus roasted chicken thigh (new main for variety) alongside more chicken breast. Pre-workout uses the wellness-bar cottage cheese protein smoothie (tropical, no berry flavor on today's menu) plus a banana.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats and multigrain bread for steady carbs, banana for fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Shio koji chicken bowl as the main, a bit of extra chicken breast, black beans and wild rice round out protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Shio Koji Chicken Bowl", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 0.5},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Wild Rice", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar cottage cheese protein smoothie (tropical, used in place of Evolve) plus a banana for easy carbs before lifting; low fat.",
+      "items": [
+        {"name": "Tropical Cottage Cheese Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Citrus roasted chicken thigh for protein-source variety on a leg day, extra chicken breast, sweet potato, wild rice and black beans close out protein and post-lift carbs.",
+      "items": [
+        {"name": "Citrus Roasted Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Sweet Potato", "servings": 2},
+        {"name": "Wild Rice", "servings": 3},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
