@@ -1,0 +1,46 @@
+{
+  "summary": "Pull day. Lunch brings in a chicken banh mi (new main) with rice and beans on the side, dinner swaps in almond-crusted cod for protein variety after a run of chicken thighs. Pre-workout uses the wellness-bar cottage cheese protein smoothie again since no berry flavor is on today's menu.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats and an English muffin for steady carbs, banana and raspberries for fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama English Muffin", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken banh mi as the main (new today, good protein variety from recent chicken-breast-heavy lunches), extra chicken breast, wild rice and black beans round out protein and carbs.",
+      "items": [
+        {"name": "Mary's Free Range Banh Mi Sriracha Mayo, Hoisin Sauce", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar cottage cheese protein smoothie plus banana and raspberries for easy, low-fat carbs before lifting.",
+      "items": [
+        {"name": "Tropical Cottage Cheese Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Almond-garlic guajillo cod for protein-source variety (fish after a week of chicken), extra chicken breast, wild rice and black beans close out protein and post-lift carbs.",
+      "items": [
+        {"name": "Almond, Garlic Guajillo Cod", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 3},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    }
+  ]
+}
