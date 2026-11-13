@@ -1,0 +1,48 @@
+{
+  "summary": "Legs A day. Lunch pivots to roasted salmon for protein variety (fish, after a run of chicken mains), with deli turkey breast added for extra lean protein. Dinner brings in blackened chicken thigh plus extra turkey breast, with more rice, sweet potato and black beans for leg-day recovery carbs. Pre-workout is the wellness-bar cottage cheese protein smoothie (tropical, no berry flavor today) with banana and dried apricot.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats and multigrain toast with honey for steady carbs, banana and raspberries for fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 2},
+        {"name": "Raspberries", "servings": 2},
+        {"name": "Honey", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Roasted salmon as the main for protein-source variety, extra deli turkey breast for lean protein, wild rice and black beans for carbs.",
+      "items": [
+        {"name": "Roasted Salmon, Bulgur Pecan Beet Salad", "servings": 1},
+        {"name": "Turkey Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar cottage cheese protein smoothie plus banana and dried apricot for easy, low-fat carbs before lifting.",
+      "items": [
+        {"name": "Tropical Cottage Cheese Protein Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Dried Apricot", "servings": 1, "station": "@L6 Breakfast Bar"}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Blackened chicken thigh (half portion to manage fat) plus extra turkey breast for protein, with wild rice, sweet potato and black beans for leg-day recovery carbs.",
+      "items": [
+        {"name": "Blackened Chicken Thigh", "servings": 0.5},
+        {"name": "Turkey Breast", "servings": 1.5},
+        {"name": "Wild Rice", "servings": 4},
+        {"name": "Sweet Potato", "servings": 3},
+        {"name": "Black Beans", "servings": 1.5}
+      ]
+    }
+  ]
+}
