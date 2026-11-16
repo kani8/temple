@@ -1,0 +1,49 @@
+{
+  "summary": "Leg day, so lunch and dinner lean carb-heavy to fuel the session. Chicken is the protein backbone all day (turkey at breakfast, Citrus Garlic Chicken + extra chicken breast at lunch, Mary's Black Pepper Chicken + extra chicken breast at dinner) with the Strawberry Mango Tajin Smoothie (has added protein powder) standing in for the usual wellness-bar protein smoothie since no cottage cheese smoothie is on today's menu.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Oatmeal bowl with fruit, toast, turkey and Greek yogurt for steady protein and carbs before the day.",
+      "items": [
+        {"name": "MWGCI Rolled Oats", "servings": 1.5},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 2},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Blueberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Citrus Garlic Chicken plate with extra chicken breast, rice and beans for a carb-forward leg-day lunch.",
+      "items": [
+        {"name": "Citrus Garlic Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 2},
+        {"name": "Roasted Corn", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat, carb-forward smoothie plus half a bagel and yogurt, eaten before the leg session.",
+      "items": [
+        {"name": "Strawberry Mango Tajin Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Fat-free Greek Yogurt", "servings": 1},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Mary's Black Pepper Chicken with extra chicken breast, rice, beans and corn to refuel after legs.",
+      "items": [
+        {"name": "Mary's Free-Range Black Pepper Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1.5},
+        {"name": "Black Beans", "servings": 2},
+        {"name": "Wild Rice", "servings": 1.5},
+        {"name": "Roasted Corn", "servings": 2}
+      ]
+    }
+  ]
+}
