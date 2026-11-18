@@ -1,0 +1,46 @@
+{
+  "summary": "Push day. Lunch centers on Mary's Five Spice Soy Sauce Chicken (new main, not repeated from recent days) with extra chicken breast, rice and cannellini beans for fiber; dinner is the Chicken Breast Sandwich with extra chicken breast and rice. Pre-workout keeps fat low with the protein-powder Strawberry Mango Tajin Smoothie since no cottage cheese smoothie is on today's menu.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats and multigrain toast for steady carbs, banana and blueberries for fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Blueberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Mary's Five Spice Soy Sauce Chicken as the main (new today, good variety), extra chicken breast for protein, wild rice for carbs, cannellini beans for fiber.",
+      "items": [
+        {"name": "Mary's Free Range Five Spice Soy Sauce Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 1},
+        {"name": "Cannellini Beans", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat protein smoothie plus half a bagel, banana and turkey for easy carbs and protein before lifting.",
+      "items": [
+        {"name": "Strawberry Mango Tajin Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Banana", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 0.5}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Chicken Breast Sandwich plus extra chicken breast and wild rice to refuel after the push session.",
+      "items": [
+        {"name": "Chicken Breast Sandwich, Spicy Pickle Ranch Dressing", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 1}
+      ]
+    }
+  ]
+}
