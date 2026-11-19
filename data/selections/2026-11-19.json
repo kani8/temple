@@ -1,0 +1,50 @@
+{
+  "summary": "Pull A day. Lunch brings in Mary's Hawaiian Pineapple Coconut Chicken for variety (not repeated from recent days), dinner swaps in Chili-lime Roasted Cod for some fish variety alongside extra chicken breast. Pre-workout keeps the protein-powder Strawberry Mango Tajin Smoothie since no cottage cheese smoothie is on today's menu.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Oatmeal bowl with banana, blueberries and chia for carbs and fiber, plus eggs, turkey and an English muffin for protein.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 1},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama English Muffin", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1},
+        {"name": "Blueberries", "servings": 1},
+        {"name": "Chia Seed", "station": "@L6 Breakfast Bar", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Mary's Hawaiian Pineapple Coconut Chicken as the main (new today, good variety after recent dishes), extra chicken breast, wild rice and black beans for protein/carbs/fiber, walnuts to round out calories and fat.",
+      "items": [
+        {"name": "Mary's Free Range Hawaiian Pineapple Coconut Chicken", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Wild Rice", "servings": 1},
+        {"name": "Walnuts", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat protein smoothie plus half a bagel, turkey and raspberries for easy carbs and protein before lifting.",
+      "items": [
+        {"name": "Strawberry Mango Tajin Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Oven Roasted Turkey Breast", "servings": 0.5},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Chili-lime Roasted Cod for protein-source variety, extra chicken breast, wild rice, black beans and pita to refuel after the pull session.",
+      "items": [
+        {"name": "Chili-lime Roasted Cod", "servings": 1.5},
+        {"name": "Herb Marinated Chicken Breast", "servings": 0.5},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Whole-wheat Pita", "servings": 1}
+      ]
+    }
+  ]
+}
