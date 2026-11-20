@@ -1,0 +1,48 @@
+{
+  "summary": "Leg day. Today's cafeteria skipped the usual Mary's chicken rotation, so lunch leans on the smokehouse Smoked Chicken plus extra chicken breast, rice and black beans; dinner is a big chicken-and-whole-grain-pasta bowl with roasted broccoli to load carbs for leg-day recovery. Pre-workout keeps the protein-powder Strawberry Mango Tajin Smoothie since no cottage cheese smoothie is on today's menu.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Eggs and turkey for protein, oats, rye toast and fruit for steady carbs and fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama Rye Bread", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Blueberries", "servings": 1},
+        {"name": "Chia Seed", "station": "@L6 Breakfast Bar", "servings": 1},
+        {"name": "MWGCI Rolled Oats", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Smoked Chicken as the main (new today, no Mary's dishes on the menu), extra chicken breast, wild rice and black beans for carbs and fiber.",
+      "items": [
+        {"name": "Smoked Chicken", "servings": 0.75},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1.5}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Low-fat protein smoothie plus half a bagel, turkey and raspberries for easy carbs and protein before lifting.",
+      "items": [
+        {"name": "Strawberry Mango Tajin Smoothie", "servings": 1},
+        {"name": "Bageletto Plain Bagel", "servings": 0.5},
+        {"name": "Oven Roasted Turkey Breast", "servings": 0.5},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Big chicken and whole grain pasta bowl with roasted broccoli and parmesan to load carbs after the leg session.",
+      "items": [
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Whole Grain Pasta", "servings": 3.5},
+        {"name": "Garlic Roasted Broccoli", "servings": 2},
+        {"name": "Parmesan Cheese", "servings": 1}
+      ]
+    }
+  ]
+}
