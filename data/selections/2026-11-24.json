@@ -1,0 +1,47 @@
+{
+  "summary": "Push C day. No composed chicken entree on the menu today, so lunch leans on scaled-up Herb Marinated Chicken Breast for the main protein, while dinner brings in Bourbon Barbecue Turkey Breast for variety. Pre-workout uses the wellness-bar Berry Cottage Cheese Smoothie.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Turkey and eggs for protein, oats and multigrain bread for carbs, fruit for fiber.",
+      "items": [
+        {"name": "Hard Boiled Cage Free Egg", "servings": 2},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 2},
+        {"name": "MWGCI Rolled Oats", "servings": 1.5},
+        {"name": "Banana", "servings": 1},
+        {"name": "Blueberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "No composed chicken entree today, so extra herb-marinated chicken breast anchors a burrito-bowl style plate with rice, beans, broccoli and avocado.",
+      "items": [
+        {"name": "Herb Marinated Chicken Breast", "servings": 3},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1},
+        {"name": "Garlic Roasted Broccoli", "servings": 1},
+        {"name": "Avocado", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar protein smoothie plus banana for quick, low-fat carbs before lifting.",
+      "items": [
+        {"name": "Berry Cottage Cheese Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 2}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Bourbon barbecue turkey breast for variety, over whole grain pasta and broccoli with walnuts, to hit post-workout protein, carb and fat targets.",
+      "items": [
+        {"name": "Bourbon Barbecue Turkey Breast", "servings": 1},
+        {"name": "Whole Grain Pasta", "servings": 2},
+        {"name": "Wild Rice", "servings": 1},
+        {"name": "Garlic Roasted Broccoli", "servings": 1},
+        {"name": "Walnuts", "servings": 1}
+      ]
+    }
+  ]
+}
