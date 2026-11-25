@@ -1,6 +1,6 @@
 # Fitness OS
 
-Daily training and nutrition planner. Current phase (from 2026-09-23): recomp from 185 lb @ ~30% BF toward 175-180 lb @ 20-22% BF, rebuilding strength from re-baselined loads.
+Daily training and nutrition planner.
 
 The system generates:
 
