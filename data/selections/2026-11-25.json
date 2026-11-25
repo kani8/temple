@@ -1,0 +1,53 @@
+{
+  "summary": "Push day, so the protein push comes from chicken breast at both lunch and dinner plus a fish-forward calamari swap is skipped in favor of chicken noodle soup for variety from the recent chicken-breast-and-rice streak. Lunch pairs a chicken pizza slice with extra grilled chicken and a rice/quinoa/bean bowl; dinner leans on chicken noodle soup, extra chicken breast, rice, bread and avocado.",
+  "meals": [
+    {
+      "name": "Uber Breakfast",
+      "note": "Bread + turkey + yogurt for protein and carbs, nut butters for healthy fat, fruit for fiber.",
+      "items": [
+        {"name": "Panorama Multi-grain Sesame Seed Bread", "servings": 1.5},
+        {"name": "Oven Roasted Turkey Breast", "servings": 1},
+        {"name": "Fat-free Greek Yogurt", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Blueberries", "servings": 1},
+        {"name": "Chia Seed", "servings": 1, "station": "@L6 Breakfast Bar"},
+        {"name": "Almond Butter", "servings": 1},
+        {"name": "Walnut", "servings": 0.5}
+      ]
+    },
+    {
+      "name": "Uber HQ Lunch",
+      "note": "Chicken pizza slice for variety plus extra grilled chicken breast and a rice/quinoa/bean/broccoli side bowl.",
+      "items": [
+        {"name": "Roasted Chicken Pizza, Cherry Tomato, Four Cheese Sauce", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 1},
+        {"name": "Quinoa", "servings": 1.5},
+        {"name": "Garlic Roasted Broccoli", "servings": 1},
+        {"name": "Wild Rice", "servings": 2},
+        {"name": "Black Beans", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Pre-workout",
+      "note": "Wellness-bar protein smoothie plus quick carbs from fruit, low fat ahead of training.",
+      "items": [
+        {"name": "Berry Cottage Cheese Smoothie", "servings": 1},
+        {"name": "Banana", "servings": 1},
+        {"name": "Dried Apricot", "servings": 1, "station": "@L6 Breakfast Bar"},
+        {"name": "Raspberries", "servings": 1}
+      ]
+    },
+    {
+      "name": "Uber Post-workout / Dinner",
+      "note": "Chicken noodle soup plus extra chicken breast, rice, bread and avocado for post-lift protein and carbs.",
+      "items": [
+        {"name": "Chicken Noodle Soup", "servings": 1},
+        {"name": "Herb Marinated Chicken Breast", "servings": 2},
+        {"name": "Wild Rice", "servings": 3},
+        {"name": "Garlic Roasted Broccoli", "servings": 1},
+        {"name": "Panorama Sourdough Bread", "servings": 1},
+        {"name": "Avocado", "servings": 1}
+      ]
+    }
+  ]
+}
